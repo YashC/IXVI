@@ -120,7 +120,7 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlyThru3dModelContent\ModelContent.contentproj">
+    <ProjectReference Include="..\ModelContent\ModelContent.contentproj">
       <Project>{A0A244D7-8098-4092-A001-FAF1F134D078}</Project>
       <Name>ModelContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
