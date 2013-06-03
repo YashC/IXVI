@@ -1,0 +1,5 @@
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.pdb
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\SkinnedModel\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.pdb

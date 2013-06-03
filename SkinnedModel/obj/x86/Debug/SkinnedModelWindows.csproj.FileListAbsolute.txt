@@ -1,0 +1,6 @@
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\SkinningSample_4_0\SkinnedModel\bin\x86\Debug\SkinnedModel.dll
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\SkinningSample_4_0\SkinnedModel\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\SkinningSample_4_0\SkinnedModel\obj\x86\Debug\SkinnedModelWindows.csprojResolveAssemblyReference.cache
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\SkinningSample_4_0\SkinnedModel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\SkinningSample_4_0\SkinnedModel\obj\x86\Debug\SkinnedModel.dll
+C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\SkinningSample_4_0\SkinnedModel\obj\x86\Debug\SkinnedModel.pdb

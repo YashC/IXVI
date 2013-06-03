@@ -1,0 +1,1 @@
+C:\Dev\XNA\Display3dModel\Display3dModelContent\obj\x86\Debug\ResolveAssemblyReference.cache

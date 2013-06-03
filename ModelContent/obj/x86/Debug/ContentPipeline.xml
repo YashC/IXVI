@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Models\testdgnimodel.fbx</Source>
+      <Name>Models\testdgnimodel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Models\testdgnimodel.xnb</Output>
+      <Time>2013-03-30T23:00:29-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\testdgnimodel_0.xml</Key>
+        <Value>2013-06-03T09:28:18.1425415-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Avatar\tank.fbx</Source>
+      <Name>Avatar\tank</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\tank.xnb</Output>
+      <Time>2013-06-02T17:22:40.2321412-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Avatar\tank_0.xml</Key>
+        <Value>2013-06-03T09:28:19.7026307-05:00</Value>
+      </Dependency>
+      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Avatar\dude.fbx</Source>
+      <Name>Avatar\dude</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\dude.xnb</Output>
+      <Time>2013-03-30T12:12:34.661976-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Avatar\dude_0.xml</Key>
+        <Value>2013-06-03T09:28:26.7140317-05:00</Value>
+      </Dependency>
+      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\head_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\pants_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\testdgnimodel.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\testdgnimodel_0.xml</Output>
+      <Time>2013-03-30T23:00:29-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\tank.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Avatar\tank_0.xml</Output>
+      <Time>2013-06-02T17:22:40.2321412-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\engine_diff_tex.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Output>
+      <Time>2010-09-20T13:53:08-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\turret_alt_diff_tex.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Output>
+      <Time>2010-09-20T13:53:10-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\dude.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Avatar\dude_0.xml</Output>
+      <Time>2013-03-30T12:12:34.661976-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\head.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\head_0.xnb</Output>
+      <Time>2013-03-30T12:12:35.8590444-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\jacket.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Output>
+      <Time>2013-03-30T12:12:37.9631648-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\pants.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\pants_0.xnb</Output>
+      <Time>2013-03-30T12:12:38.9572216-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Avatar\upBodyC.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Output>
+      <Time>2013-03-30T12:12:39.3592446-05:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModelContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModelContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
+        <Value>2013-06-03T09:13:31.8268471-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-03-28T15:08:39.6556359-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

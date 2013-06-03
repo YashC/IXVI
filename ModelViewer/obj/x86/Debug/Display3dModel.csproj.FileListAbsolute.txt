@@ -1,0 +1,7 @@
+C:\Dev\XNA\Display3dModel\Display3dModel\bin\x86\Debug\Display3dModel.exe
+C:\Dev\XNA\Display3dModel\Display3dModel\bin\x86\Debug\Display3dModel.pdb
+C:\Dev\XNA\Display3dModel\Display3dModel\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Dev\XNA\Display3dModel\Display3dModel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Dev\XNA\Display3dModel\Display3dModel\obj\x86\Debug\Display3dModel.exe
+C:\Dev\XNA\Display3dModel\Display3dModel\obj\x86\Debug\Display3dModel.pdb
+C:\Dev\XNA\Display3dModel\Display3dModel\bin\x86\Debug\Content\Models\testdgnimodel.xnb
