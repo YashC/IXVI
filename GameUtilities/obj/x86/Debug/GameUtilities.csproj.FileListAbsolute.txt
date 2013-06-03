@@ -3,3 +3,9 @@ C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\GameUtilities\bi
 C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\GameUtilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\GameUtilities\obj\x86\Debug\GameUtilities.dll
 C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\GameUtilities\obj\x86\Debug\GameUtilities.pdb
+C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\bin\x86\Debug\GameUtilities.dll
+C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\bin\x86\Debug\GameUtilities.pdb
+C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\GameUtilities.csprojResolveAssemblyReference.cache
+C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\GameUtilities.dll
+C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\GameUtilities.pdb

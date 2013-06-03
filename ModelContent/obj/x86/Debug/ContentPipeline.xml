@@ -7,11 +7,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Models\testdgnimodel.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Models\testdgnimodel.xnb</Output>
       <Time>2013-03-30T23:00:29-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\testdgnimodel_0.xml</Key>
-        <Value>2013-06-03T09:28:18.1425415-05:00</Value>
+        <Value>2013-06-03T15:58:10.7157175-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,14 +20,14 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\tank.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\tank.xnb</Output>
       <Time>2013-06-02T17:22:40.2321412-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Avatar\tank_0.xml</Key>
-        <Value>2013-06-03T09:28:19.7026307-05:00</Value>
+        <Value>2013-06-03T15:58:15.6529999-05:00</Value>
       </Dependency>
-      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Request>
-      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>Avatar\dude.fbx</Source>
@@ -35,16 +35,16 @@
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\dude.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\dude.xnb</Output>
       <Time>2013-03-30T12:12:34.661976-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Avatar\dude_0.xml</Key>
-        <Value>2013-06-03T09:28:26.7140317-05:00</Value>
+        <Value>2013-06-03T15:58:22.7984086-05:00</Value>
       </Dependency>
-      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\head_0.xnb</Request>
-      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Request>
-      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\pants_0.xnb</Request>
-      <Request>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\head_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\pants_0.xnb</Request>
+      <Request>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\testdgnimodel.fbx</Source>
@@ -73,7 +73,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Output>
       <Time>2010-09-20T13:53:08-05:00</Time>
     </Item>
     <Item>
@@ -89,7 +89,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Output>
       <Time>2010-09-20T13:53:10-05:00</Time>
     </Item>
     <Item>
@@ -112,7 +112,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\head_0.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\head_0.xnb</Output>
       <Time>2013-03-30T12:12:35.8590444-05:00</Time>
     </Item>
     <Item>
@@ -128,7 +128,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Output>
       <Time>2013-03-30T12:12:37.9631648-05:00</Time>
     </Item>
     <Item>
@@ -144,7 +144,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\pants_0.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\pants_0.xnb</Output>
       <Time>2013-03-30T12:12:38.9572216-05:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Output>
+      <Output>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Output>
       <Time>2013-03-30T12:12:39.3592446-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -169,14 +169,14 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModelContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModelContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModel\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelViewer\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
+        <Key>C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
         <Value>2013-06-03T09:13:31.8268471-05:00</Value>
       </Assembly>
       <Assembly>

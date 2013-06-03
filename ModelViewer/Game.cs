@@ -151,8 +151,12 @@ namespace ModelViewer
                     UpdateCameraThirdPerson ();
                     break;
                 }
-
-            DrawAvatar ();
+            
+            if (m_gameState.CameraState == 2 && m_gameState.IsInputActive)
+                {
+                DrawAvatar ();
+                }
+            
             DrawModel (); 
             base.Draw (gameTime);
             }

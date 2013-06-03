@@ -14,6 +14,7 @@ namespace GameUtilities
     {
     public class GameState: GameComponent
         {
+
         Vector3 m_avatarPosition = new Vector3(0.0f, 50.0f,1000.0f);
         Vector3 m_thirdPersonReference = new Vector3 (0, 50, 200);
         // Set the direction the camera points without rotation.
@@ -42,6 +43,19 @@ namespace GameUtilities
         float m_turningSpeed = 1.0f / 60.0f;
         float m_movingSpeed = 2.0f;
         float m_moveStep = 0.1f;
+        bool m_isInputActive = false;
+
+        public bool IsInputActive
+            {
+            get
+                {
+                return m_isInputActive;
+                }
+            set
+                {
+                m_isInputActive = value;
+                }
+            }
 
         public float MoveStep
             {
