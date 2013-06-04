@@ -111,3 +111,8 @@ C:\Users\richard.delong\Desktop\IXVI\ModelViewer\obj\x86\Debug\ModelViewer.exe
 C:\Users\richard.delong\Desktop\IXVI\ModelViewer\obj\x86\Debug\ModelViewer.pdb
 C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\InfoBoxes.xnb
 C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\Rectical.xnb
+C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\InfoBoxes.xnb
+C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\Rectical.xnb
+C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\default.xnb
+C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\HUD.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\HUD.pdb

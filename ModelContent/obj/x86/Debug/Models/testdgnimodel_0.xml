@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\richard.delong\Desktop\IXVI\ModelContent\Models\testdgnimodel.fbx</SourceFilename>
+      <SourceFilename>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelContent\Models\testdgnimodel.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>

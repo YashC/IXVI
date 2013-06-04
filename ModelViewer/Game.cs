@@ -71,8 +71,8 @@ namespace ModelViewer
         protected override void Initialize ()
             {
             // Setting up HUD
-            //headsUpDisplay = new HUDComponent (this);
-            //Components.Add (headsUpDisplay);
+            headsUpDisplay = new HUDComponent (this);
+            Components.Add (headsUpDisplay);
 
             // Makes Input Manager as a service and adds as a component 
             m_gameState = new GameState (this);
@@ -171,6 +171,9 @@ namespace ModelViewer
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw (GameTime gameTime)
             {
+
+            m_graphics.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            m_graphics.GraphicsDevice.BlendState = BlendState.Opaque;
             GraphicsDevice.Clear (Color.CornflowerBlue);
 
             switch (m_gameState.CameraState)

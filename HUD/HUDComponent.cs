@@ -77,8 +77,7 @@ namespace HUD
 
         public override void Draw (GameTime gameTime)
             {
-            m_gameBatch.Begin ();
-            
+            m_gameBatch.Begin ();            
             m_gameBatch.Draw (m_popupImage, new Vector2 (5, 100), Color.White);
             m_gameBatch.DrawString (m_infoFont, m_displayInfo, new Vector2 (37, 200), m_infoColor);
             m_gameBatch.End ();

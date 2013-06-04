@@ -7,11 +7,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Models\testdgnimodel.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Models\testdgnimodel.xnb</Output>
       <Time>2013-06-04T15:02:33.4384566-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\testdgnimodel_0.xml</Key>
-        <Value>2013-06-04T15:45:23.0524301-05:00</Value>
+        <Value>2013-06-04T16:30:03.9187669-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,14 +20,14 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\tank.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\tank.xnb</Output>
       <Time>2013-06-04T15:02:33.0464341-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Avatar\tank_0.xml</Key>
-        <Value>2013-06-04T15:45:24.6665224-05:00</Value>
+        <Value>2013-06-04T16:30:05.5048576-05:00</Value>
       </Dependency>
-      <Request>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Request>
-      <Request>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Request>
+      <Request>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Request>
+      <Request>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Request>
     </Item>
     <Item>
       <Source>Avatar\dude.fbx</Source>
@@ -35,16 +35,16 @@
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\dude.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\dude.xnb</Output>
       <Time>2013-06-04T15:02:32.7904195-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Avatar\dude_0.xml</Key>
-        <Value>2013-06-04T15:45:31.1648941-05:00</Value>
+        <Value>2013-06-04T16:30:11.8482204-05:00</Value>
       </Dependency>
-      <Request>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\head_0.xnb</Request>
-      <Request>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Request>
-      <Request>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\pants_0.xnb</Request>
-      <Request>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Request>
+      <Request>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\head_0.xnb</Request>
+      <Request>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Request>
+      <Request>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\pants_0.xnb</Request>
+      <Request>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Request>
     </Item>
     <Item>
       <Source>Textures\GreenOnBlackGrid.png</Source>
@@ -52,8 +52,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Textures\GreenOnBlackGrid.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Textures\GreenOnBlackGrid.xnb</Output>
       <Time>2013-06-04T15:02:33.4414567-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\InfoBoxes.png</Source>
+      <Name>Sprites\InfoBoxes</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\InfoBoxes.xnb</Output>
+      <Time>2013-06-04T15:57:50.6331892-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Rectical.png</Source>
+      <Name>Sprites\Rectical</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\Rectical.xnb</Output>
+      <Time>2013-06-04T15:57:50.629189-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\default.spritefont</Source>
@@ -61,7 +79,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\default.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\default.xnb</Output>
       <Time>2013-06-04T15:43:35.2172622-05:00</Time>
     </Item>
     <Item>
@@ -91,7 +109,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\engine_diff_tex_0.xnb</Output>
       <Time>2013-06-04T15:02:32.8954255-05:00</Time>
     </Item>
     <Item>
@@ -107,7 +125,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\turret_alt_diff_tex_0.xnb</Output>
       <Time>2013-06-04T15:02:33.1594406-05:00</Time>
     </Item>
     <Item>
@@ -130,7 +148,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\head_0.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\head_0.xnb</Output>
       <Time>2013-06-04T15:02:32.9314276-05:00</Time>
     </Item>
     <Item>
@@ -146,7 +164,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\jacket_0.xnb</Output>
       <Time>2013-06-04T15:02:32.9714298-05:00</Time>
     </Item>
     <Item>
@@ -162,7 +180,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\pants_0.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\pants_0.xnb</Output>
       <Time>2013-06-04T15:02:33.0074319-05:00</Time>
     </Item>
     <Item>
@@ -178,26 +196,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Output>
+      <Output>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\Avatar\upBodyC_0.xnb</Output>
       <Time>2013-06-04T15:02:33.1934425-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\InfoBoxes.png</Source>
-      <Name>Sprites\InfoBoxes</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\InfoBoxes.xnb</Output>
-      <Time>2013-06-04T15:57:50.6331892-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Sprites\Rectical.png</Source>
-      <Name>Sprites\Rectical</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\Sprites\Rectical.xnb</Output>
-      <Time>2013-06-04T15:57:50.629189-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -205,14 +205,14 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\richard.delong\Desktop\IXVI\ModelContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\richard.delong\Desktop\IXVI\ModelContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\richard.delong\Desktop\IXVI\ModelViewer\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\richard.delong\Documents\GitHub\IXVI\ModelViewer\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Users\richard.delong\Desktop\IXVI\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
+        <Key>C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
         <Value>2013-06-04T15:39:11.4601762-05:00</Value>
       </Assembly>
       <Assembly>
