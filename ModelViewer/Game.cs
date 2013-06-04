@@ -31,7 +31,6 @@ namespace ModelViewer
         // unnecessary garbage.
         Matrix[] m_boneTransforms;
         AnimationClip m_clip;
-        bool m_clipRunning = false;
 
         Quad m_quad;
         Texture2D m_texture;
@@ -56,6 +55,8 @@ namespace ModelViewer
             {
             m_graphics = new GraphicsDeviceManager (this);
             Content.RootDirectory = "Content";
+            m_graphics.PreferredBackBufferWidth = 1028;
+            m_graphics.PreferredBackBufferHeight = 720;
             }
 
         /// <summary>
