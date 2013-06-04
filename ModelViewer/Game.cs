@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using InputHandler;
 using GameUtilities;
 using SkinnedModel;
+using HUD;
 
 namespace ModelViewer
     {
@@ -25,6 +26,8 @@ namespace ModelViewer
         Model m_avatar;
         AnimationPlayer animationPlayer;
         BoundingBox m_modelExtents;
+        HUDComponent headsUpDisplay;
+
         // Array holding all the bone transform matrices for the entire model.
         // We could just allocate this locally inside the Draw method, but it
         // is more efficient to reuse a single array, as this avoids creating
@@ -66,7 +69,11 @@ namespace ModelViewer
         /// and initialize them as well.
         /// </summary>
         protected override void Initialize ()
-            {            
+            {
+            // Setting up HUD
+            //headsUpDisplay = new HUDComponent (this);
+            //Components.Add (headsUpDisplay);
+
             // Makes Input Manager as a service and adds as a component 
             m_gameState = new GameState (this);
             Components.Add (m_gameState);

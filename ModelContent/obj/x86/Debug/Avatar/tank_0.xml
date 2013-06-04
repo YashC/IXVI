@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>tank_geo</Name>
     <Identity>
-      <SourceFilename>C:\Users\ed.becnel\Documents\GitHub\IXVI\ModelContent\Avatar\tank.fbx</SourceFilename>
+      <SourceFilename>C:\Users\richard.delong\Desktop\IXVI\ModelContent\Avatar\tank.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -236,7 +236,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>engine_phong</Name>
       <Identity>
-        <SourceFilename>C:\Users\ed.becnel\Documents\GitHub\IXVI\ModelContent\Avatar\tank.fbx</SourceFilename>
+        <SourceFilename>C:\Users\richard.delong\Desktop\IXVI\ModelContent\Avatar\tank.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -258,7 +258,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>turret_phong</Name>
       <Identity>
-        <SourceFilename>C:\Users\ed.becnel\Documents\GitHub\IXVI\ModelContent\Avatar\tank.fbx</SourceFilename>
+        <SourceFilename>C:\Users\richard.delong\Desktop\IXVI\ModelContent\Avatar\tank.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

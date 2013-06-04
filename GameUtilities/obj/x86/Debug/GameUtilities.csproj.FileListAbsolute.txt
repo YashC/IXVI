@@ -15,3 +15,15 @@ C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\ResolveAsse
 C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.dll
 C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.pdb
+C:\Users\richard.delong\Documents\GitHub\IXVI\GameUtilities\bin\x86\Debug\GameUtilities.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\GameUtilities\bin\x86\Debug\GameUtilities.pdb
+C:\Users\richard.delong\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.delong\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\richard.delong\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.pdb
+C:\Users\richard.delong\Desktop\IXVI\GameUtilities\bin\x86\Debug\GameUtilities.dll
+C:\Users\richard.delong\Desktop\IXVI\GameUtilities\bin\x86\Debug\GameUtilities.pdb
+C:\Users\richard.delong\Desktop\IXVI\GameUtilities\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.delong\Desktop\IXVI\GameUtilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\richard.delong\Desktop\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.dll
+C:\Users\richard.delong\Desktop\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.pdb

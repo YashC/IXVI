@@ -19,3 +19,10 @@ C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModelPipeline\bin\x86\Debug\Skin
 C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModelPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.dll
 C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.pdb
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.pdb
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.pdb

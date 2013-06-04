@@ -15,3 +15,15 @@ C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\Resolve
 C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.dll
 C:\Users\ed.becnel\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.pdb
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.pdb
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\richard.delong\Documents\GitHub\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.pdb
+C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.pdb
+C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.pdb
