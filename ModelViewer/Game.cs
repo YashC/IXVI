@@ -40,6 +40,7 @@ namespace ModelViewer
         BasicEffect m_quadEffect;
 
         InputManager m_inputManager;
+        MovementManager m_movementManager;
         GameState m_gameState;
 
         public GameState GameState
@@ -80,6 +81,10 @@ namespace ModelViewer
             m_inputManager = new InputManager (this);
             Services.AddService (typeof (InputManager), m_inputManager);
             Components.Add (m_inputManager);
+
+            m_movementManager = new MovementManager (this);
+            Services.AddService (typeof (MovementManager), m_movementManager);
+            Components.Add (m_movementManager);
 
             RasterizerState state = new RasterizerState ();
             state.CullMode = CullMode.None;
@@ -174,6 +179,9 @@ namespace ModelViewer
 
             m_graphics.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             m_graphics.GraphicsDevice.BlendState = BlendState.Opaque;
+            RasterizerState rasterizeState = new RasterizerState ();
+            rasterizeState.CullMode = CullMode.None;
+            m_graphics.GraphicsDevice.RasterizerState = rasterizeState;
             GraphicsDevice.Clear (Color.CornflowerBlue);
 
             switch (m_gameState.CameraState)
