@@ -1,2 +1,3 @@
 C:\Users\Yashwanth.chintana\Dropbox\Projects\XNA\FlyThru3dModel\FlyThru3dModelContent\obj\x86\Debug\ModelContent.contentprojResolveAssemblyReference.cache
 C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\ModelContent\obj\x86\Debug\ModelContent.contentprojResolveAssemblyReference.cache
+C:\Users\ed.becnel\Documents\GitHub\IXVI\ModelContent\obj\x86\Debug\ResolveAssemblyReference.cache

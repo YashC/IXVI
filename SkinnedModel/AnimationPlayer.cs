@@ -26,6 +26,8 @@ namespace SkinnedModel
 
         // Information about the currently playing animation clip.
         AnimationClip currentClipValue;
+        AnimationClip savedClipValue;
+        public bool ClipIsPaused = false;
         TimeSpan currentTimeValue;
         int currentKeyframe;
 
@@ -64,10 +66,12 @@ namespace SkinnedModel
         /// </summary>
         public void StartClip(AnimationClip clip)
         {
-            if (clip == null)
-                throw new ArgumentNullException("clip");
+            //if (clip == null)
+                // throw new ArgumentNullException("clip");
 
             currentClipValue = clip;
+            ClipIsPaused = false;
+            savedClipValue = currentClipValue;
             currentTimeValue = TimeSpan.Zero;
             currentKeyframe = 0;
 
@@ -75,6 +79,17 @@ namespace SkinnedModel
             skinningDataValue.BindPose.CopyTo(boneTransforms, 0);
         }
 
+        public void PauseClip ()
+            {
+            currentClipValue = null;
+            ClipIsPaused = true;
+            }
+
+        public void ResumeClip ()
+            {
+            currentClipValue = savedClipValue;
+            ClipIsPaused = false;
+            }
 
         /// <summary>
         /// Advances the current animation position.
@@ -94,8 +109,9 @@ namespace SkinnedModel
         public void UpdateBoneTransforms(TimeSpan time, bool relativeToCurrentTime)
         {
             if (currentClipValue == null)
-                throw new InvalidOperationException(
-                            "AnimationPlayer.Update was called before StartClip");
+                //throw new InvalidOperationException(
+                //            "AnimationPlayer.Update was called before StartClip");
+                return;
 
             // Update the animation position.
             if (relativeToCurrentTime)

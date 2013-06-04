@@ -7,3 +7,4 @@ Content\Avatar\head_0.xnb
 Content\Avatar\jacket_0.xnb
 Content\Avatar\pants_0.xnb
 Content\Avatar\upBodyC_0.xnb
+Content\Textures\GreenOnBlackGrid.xnb

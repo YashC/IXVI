@@ -24,12 +24,19 @@ namespace ModelViewer
         Model m_model;
         Model m_avatar;
         AnimationPlayer animationPlayer;
+        BoundingBox m_modelExtents;
         // Array holding all the bone transform matrices for the entire model.
         // We could just allocate this locally inside the Draw method, but it
         // is more efficient to reuse a single array, as this avoids creating
         // unnecessary garbage.
         Matrix[] m_boneTransforms;
-       
+        AnimationClip m_clip;
+        bool m_clipRunning = false;
+
+        Quad m_quad;
+        Texture2D m_texture;
+        BasicEffect m_quadEffect;
+
         InputManager m_inputManager;
         GameState m_gameState;
 
@@ -43,10 +50,11 @@ namespace ModelViewer
                 {
                 m_gameState = value;
                 }
-            } 
+            }
+
         public Game ()
             {
-            m_graphics = new GraphicsDeviceManager (this);          
+            m_graphics = new GraphicsDeviceManager (this);
             Content.RootDirectory = "Content";
             }
 
@@ -64,14 +72,13 @@ namespace ModelViewer
             m_inputManager = new InputManager (this);
             Services.AddService (typeof (InputManager), m_inputManager);
             Components.Add (m_inputManager);
-            
 
             RasterizerState state = new RasterizerState ();
             state.CullMode = CullMode.None;
             m_graphics.GraphicsDevice.RasterizerState = state;
             m_gameState.AspectRatio = m_graphics.GraphicsDevice.Viewport.AspectRatio;
-            base.Initialize ();
 
+            base.Initialize ();
             }
 
         /// <summary>
@@ -82,10 +89,20 @@ namespace ModelViewer
             {  
             // Create a new SpriteBatch, which can be used to draw textures.
             m_spriteBatch = new SpriteBatch (GraphicsDevice); 
-            m_model = Content.Load<Model> ("Models\\testdgnimodel");            
+            m_model = Content.Load<Model> ("Models\\testdgnimodel");
+            m_modelExtents = m_model.GetBoundingBox();
+
+            float groundWidth = 10.0f * (m_modelExtents.Max.X - m_modelExtents.Min.X);
+            float groundDepth = 10.0f * (m_modelExtents.Max.Z - m_modelExtents.Min.Z);
+            float groundOriginX = m_modelExtents.Min.X + (groundWidth * 0.5f);
+            float groundOriginZ = m_modelExtents.Min.Z + (groundDepth * 0.5f);
+            float groundOriginY = m_modelExtents.Min.Y;
+            Vector3 groundOrigin = new Vector3 (0.0f, 0.0f, 0.0f);
+
+            m_quad = new Quad (groundOrigin, Vector3.Up, Vector3.Forward, m_gameState.FarClip, m_gameState.FarClip);
+
             // Allocate the transform matrix array.
             m_boneTransforms = new Matrix[m_model.Bones.Count];
-
 
             //Avatar
             m_avatar = Content.Load<Model> ("Avatar\\dude");
@@ -100,8 +117,18 @@ namespace ModelViewer
             // Create an animation player, and start decoding an animation clip.
             animationPlayer = new AnimationPlayer (skinningData);
 
-            AnimationClip clip = skinningData.AnimationClips["Take 001"];
-            animationPlayer.StartClip (clip);
+            m_clip = skinningData.AnimationClips["Take 001"];
+            animationPlayer.StartClip (m_clip);
+
+            // TODO: Load any ResourceManagementMode.Automatic content
+            m_texture = Content.Load<Texture2D> (@"Textures\GreenOnBlackGrid");
+            m_quadEffect = new BasicEffect (m_graphics.GraphicsDevice);
+            m_quadEffect.EnableDefaultLighting ();
+           
+
+            m_quadEffect.World = Matrix.CreateTranslation(Vector3.Zero);
+            m_quadEffect.TextureEnabled = true;
+            m_quadEffect.Texture = m_texture;
             }
 
         /// <summary>
@@ -151,13 +178,21 @@ namespace ModelViewer
                     UpdateCameraThirdPerson ();
                     break;
                 }
-            
+
+            DrawAvatar ();
             if (m_gameState.CameraState == 2 && m_gameState.IsInputActive)
                 {
-                DrawAvatar ();
+                //animationPlayer.Update (gameTime.ElapsedGameTime, true, Matrix.Identity);
+                if (animationPlayer.ClipIsPaused)
+                    animationPlayer.ResumeClip ();
                 }
-            
-            DrawModel (); 
+            else
+                {
+                //animationPlayer.Update (new TimeSpan (0, 0, 0), true, Matrix.Identity);
+                animationPlayer.PauseClip();
+                }
+            DrawModel ();
+            DrawQuad ();
             base.Draw (gameTime);
             }
 
@@ -184,7 +219,33 @@ namespace ModelViewer
                 mesh.Draw ();
                 }
             }
-       
+
+        private void DrawQuad ()
+            {
+            m_quadEffect.World = 
+            m_quadEffect.View = m_gameState.ViewMatrix;
+            m_quadEffect.Projection = m_gameState.ProjectionMatrix;
+
+            foreach (EffectPass pass in m_quadEffect.CurrentTechnique.Passes)
+                { 
+                pass.Apply ();
+                m_graphics.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionNormalTexture> (
+                    PrimitiveType.TriangleList, m_quad.Vertices, 0, 4, m_quad.Indices, 0, 2);
+                }
+
+            //Vector3 origin = m_quad.Origin;
+            //origin.X -= (m_quad.UpperRight.X - m_quad.UpperLeft.X);
+            //m_quad = new Quad (origin, Vector3.Up, Vector3.Forward, m_quad.Width, m_quad.Height);
+
+            //foreach (EffectPass pass in m_quadEffect.CurrentTechnique.Passes)
+            //    {
+            //    pass.Apply ();
+            //    m_graphics.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionNormalTexture> (
+            //        PrimitiveType.TriangleList, m_quad.Vertices, 0, 4, m_quad.Indices, 0, 2);
+            //    }
+
+            }
+
         void UpdateCamera ()
             {            
             // Calculate the camera's current position.
@@ -198,7 +259,6 @@ namespace ModelViewer
             // Calculate the position the camera is looking at.
             Vector3 cameraLookat = cameraPosition +  transformedReference;
 
-         
             // Set up the view matrix and projection matrix.
             
             m_gameState.ViewMatrix = Matrix.CreateLookAt (cameraPosition, cameraLookat, new Vector3 (0.0f, 1.0f, 0.0f));
@@ -273,27 +333,9 @@ namespace ModelViewer
                 }
             }
 
-        BoundingSphere GetSceneSphere ()
-            {
-            BoundingSphere sceneSphere = new BoundingSphere (new Vector3 (.5f, 1, .5f), 1.5f);
-            for (int z = 0; z < 5; z++)
-                {
-                for (int x = 0; x < 5; x++)
-                    {
-                    BoundingSphere boundingSphere = m_model.Meshes[0].BoundingSphere;
-                    boundingSphere.Center = new Vector3 (x * 3, 0, z * 3);
-
-                    sceneSphere = BoundingSphere.CreateMerged (sceneSphere, boundingSphere);
-                    }
-                }
-
-            return sceneSphere;
-            }
-
-
         void FitCameraToScene ()
             {
-            BoundingSphere sceneSphere = GetSceneSphere ();
+            BoundingSphere sceneSphere = m_model.GetSceneSphere ();
 
             m_gameState.AvatarPosition = sceneSphere.Center;
 

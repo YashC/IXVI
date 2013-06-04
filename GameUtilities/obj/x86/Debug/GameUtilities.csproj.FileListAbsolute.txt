@@ -9,3 +9,9 @@ C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\Ga
 C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\GameUtilities.dll
 C:\Users\Yashwanth.chintana\Documents\GitHub\IMXV\GameUtilities\obj\x86\Debug\GameUtilities.pdb
+C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\bin\x86\Debug\GameUtilities.dll
+C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\bin\x86\Debug\GameUtilities.pdb
+C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.dll
+C:\Users\ed.becnel\Documents\GitHub\IXVI\GameUtilities\obj\x86\Debug\GameUtilities.pdb
