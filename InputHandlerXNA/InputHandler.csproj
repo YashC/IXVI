@@ -98,6 +98,8 @@
     <Compile Include="KeyboardHandler.cs" />
     <Compile Include="KinectHandler.cs" />
     <Compile Include="MouseHandler.cs" />
+    <Compile Include="MouseMovementHandler.cs" />
+    <Compile Include="MovementManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

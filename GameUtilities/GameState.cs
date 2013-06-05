@@ -38,12 +38,25 @@ namespace GameUtilities
         float m_avatarYRotation = MathHelper.ToRadians (0.0f);            
         Quaternion m_cameraRotation = Quaternion.Identity;
 
-
         float m_aspectRatio;
         float m_turningSpeed = 1.0f / 60.0f;
         float m_movingSpeed = 2.0f;
         float m_moveStep = 0.1f;
         bool m_isInputActive = false;
+
+        Vector2 m_cursorScreenLocation = new Vector2 (0.0f, 0.0f);
+
+        public Vector2 CursorScreenLocation
+            {
+            get
+                {
+                return m_cursorScreenLocation;
+                }
+            set
+                {
+                m_cursorScreenLocation = value;
+                }
+            }
 
         public bool IsInputActive
             {

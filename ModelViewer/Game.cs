@@ -71,10 +71,6 @@ namespace ModelViewer
         /// </summary>
         protected override void Initialize ()
             {
-            // Setting up HUD
-            headsUpDisplay = new HUDComponent (this);
-            Components.Add (headsUpDisplay);
-
             // Makes Input Manager as a service and adds as a component 
             m_gameState = new GameState (this);
             Components.Add (m_gameState);
@@ -85,6 +81,10 @@ namespace ModelViewer
             m_movementManager = new MovementManager (this);
             Services.AddService (typeof (MovementManager), m_movementManager);
             Components.Add (m_movementManager);
+
+            // Setting up HUD. Must follow setting up MovementManager!
+            headsUpDisplay = new HUDComponent (this);
+            Components.Add (headsUpDisplay);
 
             RasterizerState state = new RasterizerState ();
             state.CullMode = CullMode.None;

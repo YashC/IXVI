@@ -95,6 +95,12 @@
     <Compile Include="HUDComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameUtilities\GameUtilities.csproj">
+      <Project>{998CD144-2D3E-47BD-BBFA-A560F4998143}</Project>
+      <Name>GameUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
