@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Kinect;
 using InputHandler;
 using GameUtilities;
 using SkinnedModel;
@@ -37,11 +38,16 @@ namespace ModelViewer
 
         Quad m_quad;
         Texture2D m_texture;
+        Texture2D m_kinectVideo;
         BasicEffect m_quadEffect;
 
         InputManager m_inputManager;
         MovementManager m_movementManager;
         GameState m_gameState;
+
+        KinectSensor kinect;
+        Texture2D colorVideo;
+
 
         public GameState GameState
             {
@@ -59,8 +65,8 @@ namespace ModelViewer
             {
             m_graphics = new GraphicsDeviceManager (this);
             Content.RootDirectory = "Content";
-            m_graphics.PreferredBackBufferWidth = 1028;
-            m_graphics.PreferredBackBufferHeight = 720;
+            m_graphics.PreferredBackBufferWidth = 1024;
+            m_graphics.PreferredBackBufferHeight = 768;
             }
 
         /// <summary>
@@ -71,6 +77,12 @@ namespace ModelViewer
         /// </summary>
         protected override void Initialize ()
             {
+            //kinect = KinectSensor.KinectSensors[0];
+            //kinect.ColorStream.Enable (ColorImageFormat.RgbResolution640x480Fps30);
+            //kinect.ColorFrameReady += new EventHandler<ColorImageFrameReadyEventArgs> (kinect_ColorFrameReady);
+            //kinect.Start ();
+
+
             // Makes Input Manager as a service and adds as a component 
             m_gameState = new GameState (this);
             Components.Add (m_gameState);
@@ -92,6 +104,34 @@ namespace ModelViewer
             m_gameState.AspectRatio = m_graphics.GraphicsDevice.Viewport.AspectRatio;
 
             base.Initialize ();
+            }
+
+
+        void kinect_ColorFrameReady (object sender, ColorImageFrameReadyEventArgs colorImageFrame)
+            {
+            //Get raw image
+            ColorImageFrame colorVideoFrame = colorImageFrame.OpenColorImageFrame ();
+
+            if (colorVideoFrame != null)
+                {
+                //Create array for pixel data and copy it from the image frame
+                Byte[] pixelData = new Byte[colorVideoFrame.PixelDataLength];
+                colorVideoFrame.CopyPixelDataTo (pixelData);
+
+                //Convert RGBA to BGRA
+                Byte[] bgraPixelData = new Byte[colorVideoFrame.PixelDataLength];
+                for (int i = 0; i < pixelData.Length; i += 4)
+                    {
+                    bgraPixelData[i] = pixelData[i + 2];
+                    bgraPixelData[i + 1] = pixelData[i + 1];
+                    bgraPixelData[i + 2] = pixelData[i];
+                    bgraPixelData[i + 3] = (Byte)255; //The video comes with 0 alpha so it is transparent
+                    }
+
+                // Create a texture and assign the realigned pixels
+                colorVideo = new Texture2D (m_graphics.GraphicsDevice, colorVideoFrame.Width, colorVideoFrame.Height);
+                colorVideo.SetData (bgraPixelData);
+                }
             }
 
         /// <summary>
@@ -142,6 +182,9 @@ namespace ModelViewer
             m_quadEffect.World = Matrix.CreateTranslation(Vector3.Zero);
             m_quadEffect.TextureEnabled = true;
             m_quadEffect.Texture = m_texture;
+
+            m_kinectVideo = new Texture2D (GraphicsDevice, 640, 480);
+           
             }
 
         /// <summary>
@@ -150,6 +193,7 @@ namespace ModelViewer
         /// </summary>
         protected override void UnloadContent ()
             {
+            m_inputManager.DisposeHandlers ();
             // Unload any non ContentManager content here
             }
 
@@ -165,6 +209,11 @@ namespace ModelViewer
                 this.Exit ();
 
             animationPlayer.Update (gameTime.ElapsedGameTime, true, Matrix.Identity);
+
+            if (m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage != null)
+                {
+                m_kinectVideo.SetData (m_gameState.KinectVideoColors.ColorImage);
+                }
 
             base.Update (gameTime);
             //FitCameraToScene ();
@@ -184,6 +233,17 @@ namespace ModelViewer
             m_graphics.GraphicsDevice.RasterizerState = rasterizeState;
             GraphicsDevice.Clear (Color.CornflowerBlue);
 
+            //m_spriteBatch.Begin ();
+            //m_spriteBatch.Draw (colorVideo, new Rectangle (0, 0, 320, 240), Color.White);
+            //m_spriteBatch.End ();
+
+
+            if (m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage != null)
+                {
+                m_spriteBatch.Begin ();
+                m_spriteBatch.Draw (m_kinectVideo, new Rectangle (0, 0, 128, 128), Color.White);
+                m_spriteBatch.End ();
+                }
             switch (m_gameState.CameraState)
                 {
                 default:

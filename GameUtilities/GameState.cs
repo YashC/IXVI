@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Windows.Media;
+using Kinect.Sensor;
+
 
 namespace GameUtilities
     {
@@ -45,6 +48,9 @@ namespace GameUtilities
         bool m_isInputActive = false;
 
         Vector2 m_cursorScreenLocation = new Vector2 (0.0f, 0.0f);
+		bool m_isKinectConnected = false;  
+        ColorImageData m_kinectVideoColors; 
+		
         bool m_showCursor = false;
         bool m_showInfo = false;
 
@@ -377,5 +383,28 @@ namespace GameUtilities
             }
 
 
+        public bool IsKinectConnected
+            {
+            get
+                {
+                return m_isKinectConnected;
+                }
+            set
+                {
+                m_isKinectConnected = value;
+                }
+            }
+
+        public ColorImageData KinectVideoColors
+            {
+            get
+                {
+                return m_kinectVideoColors;
+                }
+            set
+                {
+                m_kinectVideoColors = value;
+                }
+            }
         }
     }

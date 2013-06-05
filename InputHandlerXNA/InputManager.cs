@@ -75,6 +75,7 @@ namespace InputHandler
         KeyboardState m_previousKeyboardState;        
         Game m_game;
         GameState m_gameState = null;
+        KinectInputHandler kinectHandler;
 
         public GameState GameState
             {
@@ -98,8 +99,16 @@ namespace InputHandler
                     m_gameState = obj as GameState;
                     }
                 }
+
+            kinectHandler = new KinectInputHandler (this);
+
             }
 
+        public void DisposeHandlers()
+            {
+            if(kinectHandler != null)
+                kinectHandler.StopKinectSensor ();
+            }
 
         public override void Initialize ()
             {
@@ -114,6 +123,7 @@ namespace InputHandler
             {
             CurrentKeyboardState =Keyboard.GetState ();                  
             KeyboardHandler.ProcessKeyboard (this);
+            kinectHandler.ProcessKinectCommands (this);
             base.Update (gameTime);
             }
 

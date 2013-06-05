@@ -63,6 +63,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Kinect, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
@@ -93,6 +94,7 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -123,6 +125,10 @@
     <ProjectReference Include="..\HUD\HUD.csproj">
       <Project>{9FF29593-65BE-481E-A36C-5677B6E29F42}</Project>
       <Name>HUD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KinnectSensor\Kinect.Sensor.csproj">
+      <Project>{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}</Project>
+      <Name>Kinect.Sensor</Name>
     </ProjectReference>
     <ProjectReference Include="..\ModelContent\ModelContent.contentproj">
       <Project>{A0A244D7-8098-4092-A001-FAF1F134D078}</Project>
