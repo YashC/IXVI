@@ -123,7 +123,8 @@ namespace InputHandler
             {
             CurrentKeyboardState =Keyboard.GetState ();                  
             KeyboardHandler.ProcessKeyboard (this);
-            kinectHandler.ProcessKinectCommands (this);
+            if(m_gameState.IsKinectConnected)
+                kinectHandler.ProcessKinectCommands (this);
             base.Update (gameTime);
             }
 
