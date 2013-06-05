@@ -24,7 +24,8 @@ namespace HUD
         private GameState m_gameState;
 
         #region DataDisplay
-        private Texture2D m_popupImage = null;
+        private Texture2D m_popupRectical = null;
+        private Texture2D m_popupInfoBoxes = null;
         private string m_displayInfo = string.Empty;
         private Color m_infoColor = Color.White;
         private SpriteFont m_infoFont;
@@ -75,7 +76,8 @@ namespace HUD
 
         protected override void LoadContent ()
             {
-            m_popupImage = m_game.Content.Load<Texture2D>("Sprites\\Rectical");
+            m_popupRectical = m_game.Content.Load<Texture2D>(@"Sprites\Rectical");
+            m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\InfoBoxes");
             m_infoFont = m_game.Content.Load<SpriteFont> ("Sprites\\default");
             m_displayInfo = "This is a Test";
             base.LoadContent ();
@@ -90,8 +92,19 @@ namespace HUD
             {
             m_gameBatch.Begin ();            
             //m_gameBatch.Draw (m_popupImage, new Vector2 (5, 100), Color.White);
-            m_gameBatch.Draw (m_popupImage, m_gameState.CursorScreenLocation, Color.White);
-            m_gameBatch.DrawString (m_infoFont, m_displayInfo, new Vector2 (37, 200), m_infoColor);
+            Vector2 screenLocation = m_gameState.CursorScreenLocation;
+            screenLocation.X -= m_popupRectical.Width * 0.5f;
+            screenLocation.Y -= m_popupRectical.Height * 0.5f;
+            if (m_gameState.CursorSelected)
+                {
+                screenLocation.Y -= 47.0f;
+                m_gameBatch.Draw (m_popupInfoBoxes, screenLocation, Color.White);
+                }
+            else
+                {
+                m_gameBatch.Draw (m_popupRectical, screenLocation, Color.White);
+                }
+            //m_gameBatch.DrawString (m_infoFont, m_displayInfo, new Vector2 (37, 200), m_infoColor);
             m_gameBatch.End ();
             base.Draw (gameTime);
             }

@@ -20,7 +20,8 @@ namespace InputHandler
             MouseState mouseState = movementManager.CurrentMouseState;
             Vector2 mousePosition = new Vector2 (mouseState.X, mouseState.Y);
             movementManager.CursorPosition = mousePosition;
-            movementManager.GameState.CursorScreenLocation = mousePosition;
+            ButtonState buttonState = mouseState.LeftButton;
+            movementManager.CursorSelected = (buttonState == ButtonState.Pressed ? true : false);
             }
         }
     }

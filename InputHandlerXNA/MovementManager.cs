@@ -19,7 +19,6 @@ namespace InputHandler
     public class MovementManager : Microsoft.Xna.Framework.GameComponent
         {
         private MouseState m_mouseState;
-        private Vector2 m_cursorPosition;
         Game m_game;
         GameState m_gameState;
 
@@ -86,11 +85,23 @@ namespace InputHandler
             {
             get
                 {
-                return m_cursorPosition;
+                return GameState.CursorScreenLocation;
                 }
             set
                 {
-                m_cursorPosition = value;
+                GameState.CursorScreenLocation = value;
+                }
+            }
+
+        public bool CursorSelected
+            {
+            get
+                {
+                return GameState.CursorSelected;
+                }
+            set
+                {
+                GameState.CursorSelected = value;
                 }
             }
         }

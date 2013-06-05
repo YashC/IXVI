@@ -45,6 +45,7 @@ namespace GameUtilities
         bool m_isInputActive = false;
 
         Vector2 m_cursorScreenLocation = new Vector2 (0.0f, 0.0f);
+        bool m_cursorSelected = false;
 
         public Vector2 CursorScreenLocation
             {
@@ -55,6 +56,18 @@ namespace GameUtilities
             set
                 {
                 m_cursorScreenLocation = value;
+                }
+            }
+
+        public bool CursorSelected
+            {
+            get
+                {
+                return m_cursorSelected;
+                }
+            set
+                {
+                m_cursorSelected = value;
                 }
             }
 
