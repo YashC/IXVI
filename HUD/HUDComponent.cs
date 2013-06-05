@@ -29,6 +29,9 @@ namespace HUD
         private string m_displayInfo = string.Empty;
         private Color m_infoColor = Color.White;
         private SpriteFont m_infoFont;
+        private bool m_showRectical = false;
+        private bool m_showInfoBoxes = false;
+
         public string DisplayInfo
             {
             get
@@ -95,15 +98,16 @@ namespace HUD
             Vector2 screenLocation = m_gameState.CursorScreenLocation;
             screenLocation.X -= m_popupRectical.Width * 0.5f;
             screenLocation.Y -= m_popupRectical.Height * 0.5f;
-            if (m_gameState.CursorSelected)
+            m_showRectical = m_gameState.ShowCursor;
+            m_showInfoBoxes = m_gameState.ShowInfo;
+            if (m_showInfoBoxes)
                 {
                 screenLocation.Y -= 47.0f;
                 m_gameBatch.Draw (m_popupInfoBoxes, screenLocation, Color.White);
                 }
-            else
-                {
+            else if (m_showRectical)
                 m_gameBatch.Draw (m_popupRectical, screenLocation, Color.White);
-                }
+
             //m_gameBatch.DrawString (m_infoFont, m_displayInfo, new Vector2 (37, 200), m_infoColor);
             m_gameBatch.End ();
             base.Draw (gameTime);
