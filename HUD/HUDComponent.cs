@@ -28,7 +28,7 @@ namespace HUD
         private Vector2 m_propertyValueLocation;
 
         private bool m_infoShown = false;
-		
+        
         private Model m_model;
         private Matrix[] m_transforms;
 
@@ -36,6 +36,7 @@ namespace HUD
 
         List<string> insideBoundingSpheres = new List<string>();
         string pickedModelName;
+        string pickedMeshName;
 
         // Vertex array that stores exactly which triangle was picked.
         VertexPositionColor[] pickedTriangle =
@@ -139,6 +140,17 @@ namespace HUD
 
                 // Draw the outline of the triangle under the cursor.
                 DrawPickedTriangle();
+
+                if (!String.IsNullOrEmpty(pickedMeshName))
+                    {
+                    string text = "Mesh selected: " + pickedMeshName;
+
+                    m_gameBatch.DrawString(m_infoFont, text,
+                                           m_nameLocation, Color.Black);
+
+                    m_gameBatch.DrawString(m_infoFont, text,
+                                           m_propertyLocation, Color.White);
+                    }
                 }
             if (m_infoShown && m_gameState.ShowInfo && m_infoLocation != null)
                 {
@@ -182,10 +194,10 @@ namespace HUD
                 m_propertyLocation.Y += 88;
                 m_propertyValueLocation = m_propertyLocation;
                 m_propertyValueLocation.X += m_infoLocation.X + 180;
+                m_gameBatch.Draw(m_popupInfoBoxes, infoLocation, Color.White);
                 m_gameBatch.DrawString (m_infoFont, m_gameState.ComponentName, m_nameLocation, m_infoColor);
                 m_gameBatch.DrawString (m_infoFont, m_gameState.Property, m_propertyLocation, m_infoColor);
                 m_gameBatch.DrawString (m_infoFont, m_gameState.PropertyValue, m_propertyValueLocation, m_infoColor);
-                m_gameBatch.Draw (m_popupInfoBoxes, infoLocation, Color.White);
                 }
             else if (m_showRectical)
                 {
@@ -288,13 +300,14 @@ namespace HUD
 
             bool insideBoundingSphere;
             Vector3 vertex1, vertex2, vertex3;
+            string selectedMeshName;
 
             // Perform the ray to model intersection test.
             float? intersection = RayIntersectsModel(cursorRay, m_model,
                                                         m_transforms[m_model.Meshes[0].ParentBone.Index], 
                                                         out insideBoundingSphere,
                                                         out vertex1, out vertex2,
-                                                        out vertex3);
+                                                        out vertex3, out selectedMeshName);
 
             // If this model passed the initial bounding sphere test, remember
             // that so we can display it at the top of the screen.
@@ -317,6 +330,8 @@ namespace HUD
                     pickedTriangle[0].Position = vertex1;
                     pickedTriangle[1].Position = vertex2;
                     pickedTriangle[2].Position = vertex3;
+
+                    pickedMeshName = selectedMeshName;
                     }
                 }
             }
@@ -332,9 +347,10 @@ namespace HUD
         static float? RayIntersectsModel(Ray ray, Model model, Matrix modelTransform,
                                          out bool insideBoundingSphere,
                                          out Vector3 vertex1, out Vector3 vertex2,
-                                         out Vector3 vertex3)
+                                         out Vector3 vertex3, out string selectedMeshName)
             {
             vertex1 = vertex2 = vertex3 = Vector3.Zero;
+            selectedMeshName = "";
 
             // The input ray is in world space, but our model data is stored in object
             // space. We would normally have to transform all the model data by the
@@ -385,6 +401,7 @@ namespace HUD
 
                 // Loop over the vertex data, 3 at a time (3 vertices = 1 triangle).
                 Vector3[] vertices = (Vector3[])tagData["Vertices"];
+                string[] verticesMeshes = (String[])tagData["VerticesMeshes"];
 
                 for (int i = 0; i < vertices.Length; i += 3)
                     {
@@ -417,6 +434,8 @@ namespace HUD
 
                             Vector3.Transform(ref vertices[i + 2],
                                               ref modelTransform, out vertex3);
+
+                            selectedMeshName = verticesMeshes[i];
                             }
                         }
                     }
@@ -541,5 +560,6 @@ namespace HUD
             // and then create a new ray using nearPoint as the source.
             return new Ray(nearPoint, direction);
             }
+
         }
     }
