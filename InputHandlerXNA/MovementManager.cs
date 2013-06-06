@@ -21,6 +21,7 @@ namespace InputHandler
         private MouseState m_mouseState;
         Game m_game;
         GameState m_gameState;
+        private double m_elapsedTotalMilliseconds = 0.0;
 
         public GameState GameState
             {
@@ -78,7 +79,16 @@ namespace InputHandler
             {
             CurrentMouseState = Mouse.GetState ();
             MouseMovementHandler.ProcessMouse (this);
+            m_elapsedTotalMilliseconds = gameTime.TotalGameTime.TotalMilliseconds;
             base.Update (gameTime);
+            }
+
+        public double ElapsedTotalMilliSeconds
+            {
+            get
+                {
+                return m_elapsedTotalMilliseconds;
+                }
             }
 
         public Vector2 CursorPosition
@@ -93,15 +103,27 @@ namespace InputHandler
                 }
             }
 
-        public bool CursorSelected
+        public bool ShowCursor
             {
             get
                 {
-                return GameState.CursorSelected;
+                return GameState.ShowCursor;
                 }
             set
                 {
-                GameState.CursorSelected = value;
+                GameState.ShowCursor = value;
+                }
+            }
+
+        public bool ShowInfo
+            {
+            get
+                {
+                return GameState.ShowInfo;
+                }
+            set
+                {
+                GameState.ShowInfo = value;
                 }
             }
         }

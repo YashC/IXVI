@@ -73,6 +73,7 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -96,7 +97,7 @@
     <Compile Include="InputManager.cs" />
     <Compile Include="GamePadHandler.cs" />
     <Compile Include="KeyboardHandler.cs" />
-    <Compile Include="KinectHandler.cs" />
+    <Compile Include="KinectInputHandler.cs" />
     <Compile Include="MouseHandler.cs" />
     <Compile Include="MouseMovementHandler.cs" />
     <Compile Include="MovementManager.cs" />
@@ -106,6 +107,14 @@
     <ProjectReference Include="..\GameUtilities\GameUtilities.csproj">
       <Project>{998CD144-2D3E-47BD-BBFA-A560F4998143}</Project>
       <Name>GameUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kinect.Gestures\Kinect.Gestures.csproj">
+      <Project>{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}</Project>
+      <Name>Kinect.Gestures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KinnectSensor\Kinect.Sensor.csproj">
+      <Project>{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}</Project>
+      <Name>Kinect.Sensor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -52,6 +52,9 @@ namespace HUD
         private string m_displayInfo = string.Empty;
         private Color m_infoColor = Color.White;
         private SpriteFont m_infoFont;
+        private bool m_showRectical = false;
+        private bool m_showInfoBoxes = false;
+
         public string DisplayInfo
             {
             get
@@ -99,9 +102,9 @@ namespace HUD
 
         protected override void LoadContent ()
             {
-            m_popupRectical = m_game.Content.Load<Texture2D>(@"Sprites\Rectical");
+            m_popupRectical = m_game.Content.Load<Texture2D>(@"Sprites\Retical");
             m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\InfoBoxes");
-            m_infoFont = m_game.Content.Load<SpriteFont> ("Sprites\\default");
+            m_infoFont = m_game.Content.Load<SpriteFont> (@"Sprites\\default");
             m_displayInfo = "This is a Test";
 
             lineEffect = new BasicEffect(m_game.GraphicsDevice);
@@ -119,31 +122,54 @@ namespace HUD
             {
             m_gameBatch.Begin ();            
             //m_gameBatch.Draw (m_popupImage, new Vector2 (5, 100), Color.White);
+
             Vector2 screenLocation = m_gameState.CursorScreenLocation;
             
             Vector2 mouseLocation = m_gameState.CursorScreenLocation;
             screenLocation.X -= m_popupRectical.Width * 0.5f;
             screenLocation.Y -= m_popupRectical.Height * 0.5f;
 
-            if (m_gameState.CursorSelected)
+            screenLocation.Y -= 47.0f;
+            m_gameBatch.Draw (m_popupInfoBoxes, screenLocation, Color.White);
+
+            MouseState mouseState = Mouse.GetState();
+            if (mouseState.RightButton == ButtonState.Pressed)
                 {
-                MouseState mouseState = Mouse.GetState();
-                if (mouseState.RightButton == ButtonState.Pressed)
-                    {
-                    UpdatePicking();
+                UpdatePicking();
 
-                    // Draw the outline of the triangle under the cursor.
-                    DrawPickedTriangle();
-                    }
+                // Draw the outline of the triangle under the cursor.
+                DrawPickedTriangle();
+                }
+            
+            Vector2 reticalLocation = m_gameState.CursorScreenLocation;
+            Vector2 infoLocation = m_gameState.CursorScreenLocation;
+            if (reticalLocation.X < 600)
+                {
+                infoLocation.X -= m_popupRectical.Width * 0.5f;
+                m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\DialogLeft");
 
-
-                screenLocation.Y -= 47.0f;
-                m_gameBatch.Draw (m_popupInfoBoxes, screenLocation, Color.White);
                 }
             else
                 {
-                m_gameBatch.Draw (m_popupRectical, screenLocation, Color.White);
+                infoLocation.X -= m_popupInfoBoxes.Width - (m_popupRectical.Width * 0.5f);
+                m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\DialogRight");
                 }
+
+            reticalLocation.X -= m_popupRectical.Width * 0.5f;            
+            reticalLocation.Y -= m_popupRectical.Height * 0.5f;
+            infoLocation.Y = reticalLocation.Y;
+            m_showRectical = m_gameState.ShowCursor;
+            m_showInfoBoxes = m_gameState.ShowInfo;
+            if (m_showInfoBoxes)
+                {
+                reticalLocation.Y -= 47.0f;
+                m_gameBatch.Draw (m_popupInfoBoxes, infoLocation, Color.White);
+                }
+            else if (m_showRectical)
+                {
+                m_gameBatch.Draw (m_popupRectical, reticalLocation, Color.White);
+                }
+
             //m_gameBatch.DrawString (m_infoFont, m_displayInfo, new Vector2 (37, 200), m_infoColor);
             m_gameBatch.End ();
             base.Draw (gameTime);

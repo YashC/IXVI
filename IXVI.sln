@@ -16,6 +16,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HUD", "HUD\HUD.csproj", "{9FF29593-65BE-481E-A36C-5677B6E29F42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrianglePickingPipeline", "TrianglePickingPipeline\TrianglePickingPipeline.csproj", "{35D4955B-8D3A-492A-B76B-2306A50C44F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinect.Gestures", "Kinect.Gestures\Kinect.Gestures.csproj", "{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinect.Sensor", "KinnectSensor\Kinect.Sensor.csproj", "{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,6 +136,30 @@ Global
 		{35D4955B-8D3A-492A-B76B-2306A50C44F8}.Release|x86.Build.0 = Release|x86
 		{35D4955B-8D3A-492A-B76B-2306A50C44F8}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
 		{35D4955B-8D3A-492A-B76B-2306A50C44F8}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Xbox 360.ActiveCfg = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|x86.ActiveCfg = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Xbox 360.ActiveCfg = Release|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Debug|Xbox 360.ActiveCfg = Debug|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Release|x86.ActiveCfg = Release|Any CPU
+		{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}.Release|Xbox 360.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
