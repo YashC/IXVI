@@ -24,12 +24,12 @@ namespace HUD
         private GameState m_gameState;
 
         #region DataDisplay
-        private Texture2D m_popupRectical = null;
+        private Texture2D m_popupRetical = null;
         private Texture2D m_popupInfoBoxes = null;
         private string m_displayInfo = string.Empty;
         private Color m_infoColor = Color.White;
         private SpriteFont m_infoFont;
-        private bool m_showRectical = false;
+        private bool m_showRetical = false;
         private bool m_showInfoBoxes = false;
 
         public string DisplayInfo
@@ -79,7 +79,7 @@ namespace HUD
 
         protected override void LoadContent ()
             {
-            m_popupRectical = m_game.Content.Load<Texture2D>(@"Sprites\Retical");
+            m_popupRetical = m_game.Content.Load<Texture2D>(@"Sprites\Retical");
             m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\InfoBoxes");
             m_infoFont = m_game.Content.Load<SpriteFont> (@"Sprites\\default");
             m_displayInfo = "This is a Test";
@@ -96,32 +96,32 @@ namespace HUD
             m_gameBatch.Begin ();            
             //m_gameBatch.Draw (m_popupImage, new Vector2 (5, 100), Color.White);
             
-            Vector2 recticalLocation = m_gameState.CursorScreenLocation;
+            Vector2 reticalLocation = m_gameState.CursorScreenLocation;
             Vector2 infoLocation = m_gameState.CursorScreenLocation;
-            if (recticalLocation.X < 600)
+            if (reticalLocation.X < 600)
                 {
-                infoLocation.X -= m_popupRectical.Width * 0.5f;
+                infoLocation.X -= m_popupRetical.Width * 0.5f;
                 m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\DialogLeft");
                 }
             else
                 {
-                infoLocation.X -= m_popupInfoBoxes.Width - (m_popupRectical.Width * 0.5f);
+                infoLocation.X -= m_popupInfoBoxes.Width - (m_popupRetical.Width * 0.5f);
                 m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\DialogRight");
                 }
 
-            recticalLocation.X -= m_popupRectical.Width * 0.5f;            
-            recticalLocation.Y -= m_popupRectical.Height * 0.5f;
-            infoLocation.Y = recticalLocation.Y;
-            m_showRectical = m_gameState.ShowCursor;
+            reticalLocation.X -= m_popupRetical.Width * 0.5f;            
+            reticalLocation.Y -= m_popupRetical.Height * 0.5f;
+            infoLocation.Y = reticalLocation.Y;
+            m_showRetical = m_gameState.ShowCursor;
             m_showInfoBoxes = m_gameState.ShowInfo;
             if (m_showInfoBoxes)
                 {
-                recticalLocation.Y -= 47.0f;
+                reticalLocation.Y -= 47.0f;
                 m_gameBatch.Draw (m_popupInfoBoxes, infoLocation, Color.White);
                 }
-            else if (m_showRectical)
+            else if (m_showRetical)
                 {
-                m_gameBatch.Draw (m_popupRectical, recticalLocation, Color.White);
+                m_gameBatch.Draw (m_popupRetical, reticalLocation, Color.White);
                 }
             //m_gameBatch.DrawString (m_infoFont, m_displayInfo, new Vector2 (37, 200), m_infoColor);
             m_gameBatch.End ();
