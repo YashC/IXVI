@@ -48,15 +48,46 @@ namespace GameUtilities
         bool m_isInputActive = false;
 
         Vector2 m_cursorScreenLocation = new Vector2 (0.0f, 0.0f);
-		bool m_isKinectConnected = false;  
+        bool m_isKinectConnected = false;  
         ColorImageData m_kinectVideoColors; 
-		
+
         bool m_showCursor = false;
         bool m_showInfo = false;
 
         string m_componentName = "Test Name";
         string m_property = "Property Test";
         string m_propertyValue = "Value Test";
+
+        Model m_model;
+        Matrix[] m_boneTransforms;
+
+        public Model Model
+            {
+            get
+                {
+                return m_model;
+                }
+            set
+                {
+                m_model = value;
+                }
+            }
+
+        // Array holding all the bone transform matrices for the entire model.
+        // We could just allocate this locally inside the Draw method, but it
+        // is more efficient to reuse a single array, as this avoids creating
+        // unnecessary garbage.
+        public Matrix[] BoneTransforms
+            {
+            get
+                {
+                return m_boneTransforms;
+                }
+            set
+                {
+                m_boneTransforms = value;
+                }
+            }
 
         public string ComponentName
             {

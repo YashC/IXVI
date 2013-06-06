@@ -29,11 +29,6 @@ namespace ModelViewer
         BoundingBox m_modelExtents;
         HUDComponent headsUpDisplay;
 
-        // Array holding all the bone transform matrices for the entire model.
-        // We could just allocate this locally inside the Draw method, but it
-        // is more efficient to reuse a single array, as this avoids creating
-        // unnecessary garbage.
-        Matrix[] m_boneTransforms;
         AnimationClip m_clip;
 
         Quad m_quad;
@@ -143,6 +138,7 @@ namespace ModelViewer
             // Create a new SpriteBatch, which can be used to draw textures.
             m_spriteBatch = new SpriteBatch (GraphicsDevice); 
             m_model = Content.Load<Model> ("Models\\test.dgn.i.2010");
+            m_gameState.Model = m_model;
             m_modelExtents = m_model.GetBoundingBox();
 
             float groundWidth = 10.0f * (m_modelExtents.Max.X - m_modelExtents.Min.X);
@@ -161,7 +157,7 @@ namespace ModelViewer
             m_quad = new Quad (groundOrigin, Vector3.Up, Vector3.Forward, m_gameState.FarClip, m_gameState.FarClip);
 
             // Allocate the transform matrix array.
-            m_boneTransforms = new Matrix[m_model.Bones.Count];
+            m_gameState.BoneTransforms = new Matrix[m_model.Bones.Count];
 
             //Avatar
             m_avatar = Content.Load<Model> ("Avatar\\dude");
@@ -345,9 +341,11 @@ namespace ModelViewer
             Vector3 cameraLookat = cameraPosition +  transformedReference;
 
             // Set up the view matrix and projection matrix.
-            
+
             m_gameState.ViewMatrix = Matrix.CreateLookAt (cameraPosition, cameraLookat, new Vector3 (0.0f, 1.0f, 0.0f));
-                   
+            m_gameState.CameraPosition = cameraPosition;
+            m_gameState.CameraTarget = cameraLookat;
+
             m_gameState.ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView (m_gameState.ViewAngle, m_gameState.AspectRatio, m_gameState.NearClip, m_gameState.FarClip);
             }
         
@@ -370,7 +368,9 @@ namespace ModelViewer
 
             // Set up the view matrix and projection matrix.
 
-            m_gameState.ViewMatrix = Matrix.CreateLookAt (cameraPosition, cameraLookat, new Vector3 (0.0f, 1.0f, 0.0f)); 
+            m_gameState.ViewMatrix = Matrix.CreateLookAt (cameraPosition, cameraLookat, new Vector3 (0.0f, 1.0f, 0.0f));
+            m_gameState.CameraPosition = cameraPosition;
+            m_gameState.CameraTarget = cameraLookat;
 
             m_gameState.ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView (m_gameState.ViewAngle, m_gameState.AspectRatio, m_gameState.NearClip, m_gameState.FarClip);
 
@@ -385,13 +385,13 @@ namespace ModelViewer
 
             // Calculate the position the camera is looking from.
             Vector3 cameraPosition = m_gameState.AvatarPosition + transformedReference;
-            
-            
 
             // Set up the view matrix and projection matrix.
-            Vector3 lookAt = m_gameState.AvatarPosition;
-            lookAt.Y += 50.0f;
-            m_gameState.ViewMatrix = Matrix.CreateLookAt (cameraPosition, lookAt, new Vector3 (0.0f, 1.0f, 0.0f));
+            Vector3 cameraLookat = m_gameState.AvatarPosition;
+            cameraLookat.Y += 50.0f;
+            m_gameState.ViewMatrix = Matrix.CreateLookAt (cameraPosition, cameraLookat, new Vector3 (0.0f, 1.0f, 0.0f));
+            m_gameState.CameraPosition = cameraPosition;
+            m_gameState.CameraTarget = cameraLookat;
 
             m_gameState.ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView (m_gameState.ViewAngle, m_gameState.AspectRatio, m_gameState.NearClip, m_gameState.FarClip);
 
@@ -400,7 +400,7 @@ namespace ModelViewer
         private void DrawModel ()
             {
             // Copy any parent transforms.
-            m_model.CopyAbsoluteBoneTransformsTo (m_boneTransforms);
+            m_model.CopyAbsoluteBoneTransformsTo (m_gameState.BoneTransforms);
             // Draw the model. A model can have multiple meshes, so loop.
             foreach (ModelMesh mesh in m_model.Meshes)
                 {
@@ -409,7 +409,7 @@ namespace ModelViewer
                 foreach (BasicEffect effect in mesh.Effects)
                     {
                     effect.EnableDefaultLighting ();
-                    effect.World = m_boneTransforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(m_gameState.ModelRotation)  * Matrix.CreateTranslation(m_gameState.ModelPosition);
+                    effect.World = m_gameState.BoneTransforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(m_gameState.ModelRotation)  * Matrix.CreateTranslation(m_gameState.ModelPosition);
                     effect.View = m_gameState.ViewMatrix;
                     effect.Projection = m_gameState.ProjectionMatrix;
                     }
