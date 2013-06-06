@@ -27,7 +27,7 @@ namespace TrianglePickingPipeline
     public class TrianglePickingProcessor : ModelProcessor
     {
         List<Vector3> vertices = new List<Vector3>();
-
+        List<string> verticesMeshes = new List<string>();
 
         /// <summary>
         /// The main method in charge of processing the content.
@@ -62,7 +62,10 @@ namespace TrianglePickingPipeline
 
             // Also store a custom bounding sphere.
             tagData.Add("BoundingSphere", BoundingSphere.CreateFromPoints(vertices));
-            
+
+            tagData.Add("VerticesMeshes", verticesMeshes.ToArray());
+
+
             return model;
         }
 
@@ -92,9 +95,10 @@ namespace TrianglePickingPipeline
 
                         // Transform from local into world space.
                         vertex = Vector3.Transform(vertex, absoluteTransform);
-
+                        
                         // Store this vertex.
                         vertices.Add(vertex);
+                        verticesMeshes.Add(mesh.Name);
                     }
                 }
             }
