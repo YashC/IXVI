@@ -121,19 +121,10 @@ namespace HUD
         public override void Draw (GameTime gameTime)
             {
             m_gameBatch.Begin ();            
-            //m_gameBatch.Draw (m_popupImage, new Vector2 (5, 100), Color.White);
-
-            Vector2 screenLocation = m_gameState.CursorScreenLocation;
-            
             Vector2 mouseLocation = m_gameState.CursorScreenLocation;
-            screenLocation.X -= m_popupRectical.Width * 0.5f;
-            screenLocation.Y -= m_popupRectical.Height * 0.5f;
-
-            screenLocation.Y -= 47.0f;
-            m_gameBatch.Draw (m_popupInfoBoxes, screenLocation, Color.White);
 
             MouseState mouseState = Mouse.GetState();
-            if (mouseState.RightButton == ButtonState.Pressed)
+            if (mouseState.LeftButton == ButtonState.Pressed)
                 {
                 UpdatePicking();
 

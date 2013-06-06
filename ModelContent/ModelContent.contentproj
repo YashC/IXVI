@@ -57,13 +57,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\testdgnimodel.fbx">
-      <Name>testdgnimodel</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>TrianglePickingProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
@@ -127,7 +120,7 @@
     <Compile Include="Models\test.dgn.i.2010.fbx">
       <Name>test.dgn.i.2010</Name>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+      <Processor>TrianglePickingProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -154,11 +147,6 @@
       <Name>BESM_Example</Name>
       <Importer>FbxImporter</Importer>
       <Processor>TrianglePickingProcessor</Processor>
-    </Compile>
-    <Compile Include="Models\outputTest.fbx">
-      <Name>outputTest</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
