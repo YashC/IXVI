@@ -38,7 +38,7 @@ namespace ModelViewer
 
         Quad m_quad;
         Texture2D m_texture;
-        Texture2D m_kinectVideo;
+        //Texture2D m_kinectVideo;
         BasicEffect m_quadEffect;
 
         InputManager m_inputManager;
@@ -189,7 +189,7 @@ namespace ModelViewer
             m_quadEffect.TextureEnabled = true;
             m_quadEffect.Texture = m_texture;
 
-            m_kinectVideo = new Texture2D (GraphicsDevice, 640, 480);
+            //m_kinectVideo = new Texture2D (GraphicsDevice, 640, 480);
            
             }
 
@@ -216,10 +216,10 @@ namespace ModelViewer
 
             animationPlayer.Update (gameTime.ElapsedGameTime, true, Matrix.Identity);
 
-            if (m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage != null)
-                {
-                m_kinectVideo.SetData (m_gameState.KinectVideoColors.ColorImage);
-                }
+            //if (m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage != null)
+            //    {
+            //    m_kinectVideo.SetData (m_gameState.KinectVideoColors.ColorImage);
+            //    }
 
             base.Update (gameTime);
             //FitCameraToScene ();
@@ -244,12 +244,12 @@ namespace ModelViewer
             //m_spriteBatch.End ();
 
 
-            if (m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage != null)
-                {
-                m_spriteBatch.Begin ();
-                m_spriteBatch.Draw (m_kinectVideo, new Rectangle (0, 0, 128, 128), Color.White);
-                m_spriteBatch.End ();
-                }
+            //if (m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage != null)
+            //    {
+            //    m_spriteBatch.Begin ();
+            //    m_spriteBatch.Draw (m_kinectVideo, new Rectangle (0, 0, 128, 128), Color.White);
+            //    m_spriteBatch.End ();
+            //    }
             switch (m_gameState.CameraState)
                 {
                 default:
@@ -433,5 +433,6 @@ namespace ModelViewer
             m_gameState.AvatarPosition += (back * distanceToCenter);
 
             }
+
         }
     }

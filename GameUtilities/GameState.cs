@@ -54,6 +54,47 @@ namespace GameUtilities
         bool m_showCursor = false;
         bool m_showInfo = false;
 
+        string m_componentName = "Test Name";
+        string m_property = "Property Test";
+        string m_propertyValue = "Value Test";
+
+        public string ComponentName
+            {
+            get
+                {
+                return m_componentName;
+                }
+            set
+                {
+                m_componentName = value;
+                }
+            }
+
+        public string Property
+            {
+            get
+                {
+                return m_property;
+                }
+            set
+                {
+                m_property = value;
+                }
+            }
+
+        public string PropertyValue
+            {
+            get
+                {
+                return m_propertyValue;
+                }
+            set
+                {
+                m_propertyValue = value;
+                }
+            }
+
+
         public Vector2 CursorScreenLocation
             {
             get

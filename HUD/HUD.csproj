@@ -100,6 +100,10 @@
       <Project>{998CD144-2D3E-47BD-BBFA-A560F4998143}</Project>
       <Name>GameUtilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KinnectSensor\Kinect.Sensor.csproj">
+      <Project>{DE0D0855-00D5-4CE8-8F81-1F16BAB9620E}</Project>
+      <Name>Kinect.Sensor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

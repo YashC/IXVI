@@ -22,8 +22,17 @@ namespace HUD
         // Game 
         private Game m_game;
         private GameState m_gameState;
+        private Vector2 m_infoLocation;
+        private Vector2 m_nameLocation;
+        private Vector2 m_propertyLocation;
+        private Vector2 m_propertyValueLocation;
+
+        private bool m_infoShown = false;
+		
         private Model m_model;
         private Matrix[] m_transforms;
+
+        Texture2D m_kinectVideo;
 
         List<string> insideBoundingSpheres = new List<string>();
         string pickedModelName;
@@ -131,14 +140,24 @@ namespace HUD
                 // Draw the outline of the triangle under the cursor.
                 DrawPickedTriangle();
                 }
+            if (m_infoShown && m_gameState.ShowInfo && m_infoLocation != null)
+                {
+                m_gameBatch.Draw (m_popupInfoBoxes, m_infoLocation, Color.White);
+                m_gameBatch.DrawString (m_infoFont, m_gameState.ComponentName, m_nameLocation, m_infoColor);
+                m_gameBatch.DrawString (m_infoFont, m_gameState.Property, m_propertyLocation, m_infoColor);
+                m_gameBatch.DrawString (m_infoFont, m_gameState.PropertyValue, m_propertyValueLocation, m_infoColor);
+                m_gameBatch.End ();
+                base.Draw (gameTime);
+                return;
+                }
+            //m_gameBatch.Draw (m_popupImage, new Vector2 (5, 100), Color.White);
             
             Vector2 reticalLocation = m_gameState.CursorScreenLocation;
             Vector2 infoLocation = m_gameState.CursorScreenLocation;
             if (reticalLocation.X < 600)
                 {
                 infoLocation.X -= m_popupRectical.Width * 0.5f;
-                m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\DialogLeft");
-
+                m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\SteamPunkDialog");
                 }
             else
                 {
@@ -153,19 +172,41 @@ namespace HUD
             m_showInfoBoxes = m_gameState.ShowInfo;
             if (m_showInfoBoxes)
                 {
-                reticalLocation.Y -= 47.0f;
+                m_infoShown = true;
+                //infoLocation.Y -= 47.0f;
+                m_infoLocation = infoLocation;
+                m_nameLocation = m_infoLocation;
+                m_nameLocation.X += 108;
+                m_nameLocation.Y += 190;
+                m_propertyLocation = m_nameLocation;
+                m_propertyLocation.Y += 88;
+                m_propertyValueLocation = m_propertyLocation;
+                m_propertyValueLocation.X += m_infoLocation.X + 180;
+                m_gameBatch.DrawString (m_infoFont, m_gameState.ComponentName, m_nameLocation, m_infoColor);
+                m_gameBatch.DrawString (m_infoFont, m_gameState.Property, m_propertyLocation, m_infoColor);
+                m_gameBatch.DrawString (m_infoFont, m_gameState.PropertyValue, m_propertyValueLocation, m_infoColor);
                 m_gameBatch.Draw (m_popupInfoBoxes, infoLocation, Color.White);
                 }
             else if (m_showRectical)
                 {
+                m_infoShown = false;
                 m_gameBatch.Draw (m_popupRectical, reticalLocation, Color.White);
                 }
 
-            //m_gameBatch.DrawString (m_infoFont, m_displayInfo, new Vector2 (37, 200), m_infoColor);
+            KinectVideo ();
+            
             m_gameBatch.End ();
             base.Draw (gameTime);
             }
 
+        private void KinectVideo ()
+            {
+            if (!m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage == null)
+                return;
+
+            m_kinectVideo.SetData (m_gameState.KinectVideoColors.ColorImage);
+            m_gameBatch.Draw (m_kinectVideo, new Rectangle (0, 0, 128, 128), Color.White);                
+            }
         public Model Model
             {
             get
