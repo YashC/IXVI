@@ -96,6 +96,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyService.cs" />
     <Compile Include="Quad.cs" />
     <Compile Include="SphereRenderer.cs" />
   </ItemGroup>

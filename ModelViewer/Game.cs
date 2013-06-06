@@ -60,8 +60,8 @@ namespace ModelViewer
             {
             m_graphics = new GraphicsDeviceManager (this);
             Content.RootDirectory = "Content";
-            m_graphics.PreferredBackBufferWidth = 1024;
-            m_graphics.PreferredBackBufferHeight = 768;
+            m_graphics.PreferredBackBufferWidth = 1680;
+            m_graphics.PreferredBackBufferHeight = 1050;
             }
 
         /// <summary>

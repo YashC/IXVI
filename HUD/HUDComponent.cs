@@ -28,6 +28,7 @@ namespace HUD
         private Vector2 m_propertyValueLocation;
 
         private bool m_infoShown = false;
+        Dictionary<String, String> m_objectProperties;
         
         private Model m_model;
         private Matrix[] m_transforms;
@@ -62,6 +63,7 @@ namespace HUD
         private string m_displayInfo = string.Empty;
         private Color m_infoColor = Color.White;
         private SpriteFont m_infoFont;
+        private SpriteFont m_titleFont;
         private bool m_showRectical = false;
         private bool m_showInfoBoxes = false;
 
@@ -116,6 +118,7 @@ namespace HUD
             m_gameState.SelectionRadius = m_popupRetical.Height * 0.5f;
             m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Left");
             m_infoFont = m_game.Content.Load<SpriteFont> (@"Sprites\\default");
+            m_titleFont = m_game.Content.Load<SpriteFont> (@"Sprites\\title");
             m_displayInfo = "This is a Test";
 
             lineEffect = new BasicEffect(m_game.GraphicsDevice);
@@ -199,6 +202,7 @@ namespace HUD
             {
             if (updateLocation)
                 {
+                SelectObject ();
                 // Set locations and which sprite to use
                 if (mouseLocation.X < m_game.Window.ClientBounds.Width / 2 &&
                     mouseLocation.Y < m_game.Window.ClientBounds.Height / 2)
@@ -210,13 +214,13 @@ namespace HUD
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Left");
 
                     // Text locations
-                    m_nameLocation.X = mouseLocation.X + 130;
+                    m_nameLocation.X = mouseLocation.X + 100;
                     m_nameLocation.Y = mouseLocation.Y - 40;
 
-                    m_propertyLocation.X = mouseLocation.X + 50;
+                    m_propertyLocation.X = mouseLocation.X + 10;
                     m_propertyLocation.Y = mouseLocation.Y + 70;
 
-                    m_propertyValueLocation.X = mouseLocation.X + 250;
+                    m_propertyValueLocation.X = mouseLocation.X + 220;
                     m_propertyValueLocation.Y = mouseLocation.Y + 70;
                     }
                 else if (mouseLocation.X < m_game.Window.ClientBounds.Width / 2 &&
@@ -228,14 +232,14 @@ namespace HUD
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Bottom Left");
 
                     // Text locations
-                    m_nameLocation.X = mouseLocation.X + 130;
-                    m_nameLocation.Y = mouseLocation.Y + 10;
+                    m_nameLocation.X = mouseLocation.X + 115;
+                    m_nameLocation.Y = mouseLocation.Y + 15;
 
-                    m_propertyLocation.X = mouseLocation.X + 50;
-                    m_propertyLocation.Y = mouseLocation.Y - 90;
+                    m_propertyLocation.X = mouseLocation.X + 12;
+                    m_propertyLocation.Y = mouseLocation.Y - 330;
 
-                    m_propertyValueLocation.X = mouseLocation.X + 250;
-                    m_propertyValueLocation.Y = mouseLocation.Y - 90;
+                    m_propertyValueLocation.X = mouseLocation.X + 220;
+                    m_propertyValueLocation.Y = mouseLocation.Y - 330;
                     }
                 else if (mouseLocation.X >= m_game.Window.ClientBounds.Width / 2 &&
                         mouseLocation.Y < m_game.Window.ClientBounds.Height / 2)
@@ -246,8 +250,8 @@ namespace HUD
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Right");
 
                     // Text locations
-                    m_nameLocation.X = mouseLocation.X - 250;
-                    m_nameLocation.Y = mouseLocation.Y - 40;
+                    m_nameLocation.X = mouseLocation.X - 350;
+                    m_nameLocation.Y = mouseLocation.Y - 35;
 
                     m_propertyLocation.X = mouseLocation.X - 370;
                     m_propertyLocation.Y = mouseLocation.Y + 70;
@@ -264,21 +268,71 @@ namespace HUD
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Bottom Right");
 
                     // Text locations
-                    m_nameLocation.X = mouseLocation.X - 250;
-                    m_nameLocation.Y = mouseLocation.Y + 10;
+                    m_nameLocation.X = mouseLocation.X - 350;
+                    m_nameLocation.Y = mouseLocation.Y + 15;
 
                     m_propertyLocation.X = mouseLocation.X - 370;
-                    m_propertyLocation.Y = mouseLocation.Y - 90;
+                    m_propertyLocation.Y = mouseLocation.Y - 330;
 
                     m_propertyValueLocation.X = mouseLocation.X - 170;
-                    m_propertyValueLocation.Y = mouseLocation.Y - 90;
+                    m_propertyValueLocation.Y = mouseLocation.Y - 330;
                     }
                 }
             // Draw the info box and its text
+            if (m_objectProperties == null)
+                return;
             m_gameBatch.Draw (m_popupInfoBoxes, m_infoDialogLocation, Color.White);
-            m_gameBatch.DrawString (m_infoFont, m_gameState.ComponentName, m_nameLocation, m_infoColor);
-            m_gameBatch.DrawString (m_infoFont, m_gameState.Property, m_propertyLocation, m_infoColor);
-            m_gameBatch.DrawString (m_infoFont, m_gameState.PropertyValue, m_propertyValueLocation, m_infoColor);
+            
+            Vector2 baseProperty = m_propertyLocation;
+            Vector2 baseValue = m_propertyValueLocation;
+
+            int count = 0;
+            foreach (var entry in m_objectProperties)
+                {
+                if (count == 14)
+                    break;
+                m_gameState.Property = entry.Key;
+                m_gameState.PropertyValue = entry.Value;
+                if (!String.Equals (m_gameState.Property, "NAME", StringComparison.InvariantCultureIgnoreCase) && 
+                    entry.Key.Length < 32 &&
+                    entry.Value.Length < 32)
+                    {
+                    baseProperty.Y += 15;
+                    baseValue.Y += 15;
+                    m_gameBatch.DrawString (m_infoFont, m_gameState.Property, baseProperty, m_infoColor);
+                    m_gameBatch.DrawString (m_infoFont, m_gameState.PropertyValue, baseValue, m_infoColor);
+                    count++;
+                    }
+                }
+            SetName ();
+            m_gameBatch.DrawString (m_titleFont, m_gameState.ComponentName, m_nameLocation, m_infoColor);
+            }
+
+        private void SelectObject ()
+            {
+            m_gameState.ComponentName = Extensions.GetSelectedObjectName (m_gameState);
+            PropertyService service = new PropertyService ();
+            service.Init (@"test.dgn.i.dgn.data");
+
+            m_objectProperties = service.GetProperties (m_gameState.ComponentName);
+            }
+
+        private void SetName ()
+            {
+            if (m_objectProperties == null)
+                return;
+
+            foreach (var entry in m_objectProperties)
+                {
+                if (String.Equals (entry.Key, "NAME", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                    if (entry.Value.Length > 32)
+                        m_gameState.ComponentName = entry.Value.Substring (0, 32);
+                    else
+                        m_gameState.ComponentName = entry.Value;
+                    return;
+                    }
+                }
             }
 
         // Draws the Kinect Video display if the Kinect is available
