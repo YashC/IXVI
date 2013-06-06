@@ -413,6 +413,15 @@ namespace ModelViewer
                     effect.World = m_gameState.BoneTransforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(m_gameState.ModelRotation)  * Matrix.CreateTranslation(m_gameState.ModelPosition);
                     effect.View = m_gameState.ViewMatrix;
                     effect.Projection = m_gameState.ProjectionMatrix;
+                    if (!string.IsNullOrEmpty (m_gameState.OnHoverComponentName) && mesh.Name == m_gameState.OnHoverComponentName)
+                        {
+                        //Console.WriteLine ("mesh.Name = {0} m_gameState.OnHoverComponentName = {1}", mesh.Name, m_gameState.OnHoverComponentName);
+                        effect.DiffuseColor = Color.Yellow.ToVector3 ();
+                        }
+                    else
+                        {
+                        effect.DiffuseColor = Color.Gray.ToVector3 ();
+                        }
                     }
                 // Draw the mesh, using the effects set above.
                 mesh.Draw ();

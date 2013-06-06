@@ -134,6 +134,12 @@ namespace HUD
             m_gameBatch.Begin ();            
             Vector2 mouseLocation = m_gameState.CursorScreenLocation;
 
+            m_gameState.OnHoverComponentName = string.Empty;
+            if (m_gameState.ShowCursor)
+                {
+                m_gameState.OnHoverComponentName = Extensions.GetSelectedObjectName (m_gameState);
+                }
+
             if (m_gameState.ShowInfo)
                 {
                 string selectedObjName = Extensions.GetSelectedObjectName (m_gameState);

@@ -64,6 +64,20 @@ namespace GameUtilities
         GraphicsDevice m_graphicsDevice;
         float m_selectionRadius;
 
+        string m_onHoverComponentName;
+
+        public string OnHoverComponentName
+            {
+            get
+                {
+                return m_onHoverComponentName;
+                }
+            set
+                {
+                m_onHoverComponentName = value;
+                }
+            }
+        
         public float SelectionRadius
             {
             get
