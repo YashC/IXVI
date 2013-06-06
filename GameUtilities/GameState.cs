@@ -61,6 +61,20 @@ namespace GameUtilities
         Model m_model;
         Matrix[] m_boneTransforms;
 
+        GraphicsDevice m_graphicsDevice;
+
+        public GraphicsDevice GraphicsDevice
+            {
+            get
+                {
+                return m_graphicsDevice;
+                }
+            set
+                {
+                m_graphicsDevice = value;
+                }
+            }
+
         public Model Model
             {
             get
@@ -478,5 +492,6 @@ namespace GameUtilities
                 m_kinectVideoColors = value;
                 }
             }
+
         }
     }

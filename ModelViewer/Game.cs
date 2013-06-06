@@ -96,6 +96,7 @@ namespace ModelViewer
             RasterizerState state = new RasterizerState ();
             state.CullMode = CullMode.None;
             m_graphics.GraphicsDevice.RasterizerState = state;
+            m_gameState.GraphicsDevice = m_graphics.GraphicsDevice;
             m_gameState.AspectRatio = m_graphics.GraphicsDevice.Viewport.AspectRatio;
 
             base.Initialize ();
