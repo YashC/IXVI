@@ -60,7 +60,7 @@
     <Compile Include="Models\testdgnimodel.fbx">
       <Name>testdgnimodel</Name>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+      <Processor>TrianglePickingProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +104,10 @@
       <Project>{4636C7E1-B845-4B83-B96D-64A11B8A4515}</Project>
       <Name>SkinnedModelPipeline</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TrianglePickingPipeline\TrianglePickingPipeline.csproj">
+      <Project>{35D4955B-8D3A-492A-B76B-2306A50C44F8}</Project>
+      <Name>TrianglePickingPipeline</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Textures\GreenOnBlackGrid.png">
@@ -129,6 +133,18 @@
       <Name>Rectical</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\BESM_Example.fbx">
+      <Name>BESM_Example</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>TrianglePickingProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\outputTest.fbx">
+      <Name>outputTest</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

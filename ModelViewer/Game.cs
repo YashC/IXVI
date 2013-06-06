@@ -112,6 +112,12 @@ namespace ModelViewer
             float groundOriginY = m_modelExtents.Min.Y;
             Vector3 groundOrigin = new Vector3 (0.0f, 0.0f, 0.0f);
 
+            //Copy model and transform to HUDComponent
+            headsUpDisplay.Model = m_model;
+            headsUpDisplay.Transforms = new Matrix[m_model.Bones.Count];
+            m_model.CopyAbsoluteBoneTransformsTo(headsUpDisplay.Transforms);
+
+
             m_quad = new Quad (groundOrigin, Vector3.Up, Vector3.Forward, m_gameState.FarClip, m_gameState.FarClip);
 
             // Allocate the transform matrix array.
@@ -367,6 +373,5 @@ namespace ModelViewer
             m_gameState.AvatarPosition += (back * distanceToCenter);
 
             }
-
         }
     }
