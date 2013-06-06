@@ -50,11 +50,12 @@ namespace GameUtilities
                 if (diffLength < shortestDiff)
                     {
                     shortestDiff = diffLength;
-                    objectName = mesh.Name;
+                    if (shortestDiff <= gameState.SelectionRadius)
+                        objectName = mesh.Name;
                     }
                 }
 
-            Console.WriteLine (objectName);
+            //Console.WriteLine (objectName);
             return objectName;
             }
         }

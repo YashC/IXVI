@@ -57,7 +57,7 @@ namespace HUD
         };
 
         #region DataDisplay
-        private Texture2D m_popupRectical = null;
+        private Texture2D m_popupRetical = null;
         private Texture2D m_popupInfoBoxes = null;
         private string m_displayInfo = string.Empty;
         private Color m_infoColor = Color.White;
@@ -112,7 +112,8 @@ namespace HUD
 
         protected override void LoadContent ()
             {
-            m_popupRectical = m_game.Content.Load<Texture2D> (@"Sprites\Retical");
+            m_popupRetical = m_game.Content.Load<Texture2D> (@"Sprites\Retical");
+            m_gameState.SelectionRadius = m_popupRetical.Height * 0.5f;
             m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Left");
             m_infoFont = m_game.Content.Load<SpriteFont> (@"Sprites\\default");
             m_displayInfo = "This is a Test";
@@ -132,6 +133,11 @@ namespace HUD
             {
             m_gameBatch.Begin ();            
             Vector2 mouseLocation = m_gameState.CursorScreenLocation;
+
+            if (m_gameState.ShowInfo)
+                {
+                string selectedObjName = Extensions.GetSelectedObjectName (m_gameState);
+                }
 
             MouseState mouseState = Mouse.GetState();
             if (mouseState.LeftButton == ButtonState.Pressed)
@@ -162,8 +168,8 @@ namespace HUD
             
             Vector2 reticalLocation = m_gameState.CursorScreenLocation;
 
-            reticalLocation.X -= m_popupRectical.Width * 0.5f;            
-            reticalLocation.Y -= m_popupRectical.Height * 0.5f;
+            reticalLocation.X -= m_popupRetical.Width * 0.5f;            
+            reticalLocation.Y -= m_popupRetical.Height * 0.5f;
             m_showRectical = m_gameState.ShowCursor;
             m_showInfoBoxes = m_gameState.ShowInfo;
             if (m_showInfoBoxes)
@@ -174,7 +180,7 @@ namespace HUD
             else if (m_showRectical)
                 {
                 m_infoShown = false;
-                m_gameBatch.Draw (m_popupRectical, reticalLocation, Color.White);
+                m_gameBatch.Draw (m_popupRetical, reticalLocation, Color.White);
                 }
 
             KinectVideo ();

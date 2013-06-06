@@ -62,6 +62,19 @@ namespace GameUtilities
         Matrix[] m_boneTransforms;
 
         GraphicsDevice m_graphicsDevice;
+        float m_selectionRadius;
+
+        public float SelectionRadius
+            {
+            get
+                {
+                return m_selectionRadius;
+                }
+            set
+                {
+                m_selectionRadius = value;
+                }
+            }
 
         public GraphicsDevice GraphicsDevice
             {
