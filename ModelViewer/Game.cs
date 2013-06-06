@@ -142,7 +142,7 @@ namespace ModelViewer
             {  
             // Create a new SpriteBatch, which can be used to draw textures.
             m_spriteBatch = new SpriteBatch (GraphicsDevice); 
-            m_model = Content.Load<Model> ("Models\\testdgnimodel");
+            m_model = Content.Load<Model> ("Models\\test.dgn.i.2010");
             m_modelExtents = m_model.GetBoundingBox();
 
             float groundWidth = 10.0f * (m_modelExtents.Max.X - m_modelExtents.Min.X);
