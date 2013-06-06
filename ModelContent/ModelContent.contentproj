@@ -110,13 +110,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\InfoBoxes.png">
-      <Name>InfoBoxes</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Models\test.dgn.i.2010.fbx">
       <Name>test.dgn.i.2010</Name>
       <Importer>FbxImporter</Importer>
@@ -131,18 +124,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\DialogLeft.png">
-      <Name>DialogLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Sprites\DialogRight.png">
-      <Name>DialogRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Models\BESM_Example.fbx">
       <Name>BESM_Example</Name>
       <Importer>FbxImporter</Importer>
@@ -152,6 +133,50 @@
   <ItemGroup>
     <Compile Include="Sprites\SteamPunkDialog.png">
       <Name>SteamPunkDialog</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Dialog Bottom Left.png">
+      <Name>Dialog Bottom Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Dialog Bottom Right.png">
+      <Name>Dialog Bottom Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Dialog Left.png">
+      <Name>Dialog Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Dialog Right.png">
+      <Name>Dialog Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Steam Punk Dialog Bottom Left.png">
+      <Name>Steam Punk Dialog Bottom Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Steam Punk Dialog Bottom Right.png">
+      <Name>Steam Punk Dialog Bottom Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Steam Punk Dialog Top Left.png">
+      <Name>Steam Punk Dialog Top Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Steam Punk Dialog Top Right.png">
+      <Name>Steam Punk Dialog Top Right</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
