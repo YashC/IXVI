@@ -38,6 +38,7 @@ namespace HUD
         List<string> insideBoundingSpheres = new List<string>();
         string pickedModelName;
         string pickedMeshName;
+        private const int MAX_NAME_LENGTH = 48;
 
         // Vertex array that stores exactly which triangle was picked.
         VertexPositionColor[] pickedTriangle =
@@ -209,73 +210,81 @@ namespace HUD
                     {
                     // Top Left
                     // Dialog locations
-                    m_infoDialogLocation.X = mouseLocation.X - 75;
-                    m_infoDialogLocation.Y = mouseLocation.Y - 142;
+                    m_infoDialogLocation.X = mouseLocation.X - 82;
+                    m_infoDialogLocation.Y = mouseLocation.Y - 81;
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Left");
 
                     // Text locations
                     m_nameLocation.X = mouseLocation.X + 100;
                     m_nameLocation.Y = mouseLocation.Y - 40;
 
-                    m_propertyLocation.X = mouseLocation.X + 10;
-                    m_propertyLocation.Y = mouseLocation.Y + 70;
+                    m_propertyLocation.X = mouseLocation.X + 16;
+                    m_propertyLocation.Y = mouseLocation.Y + 80;
 
-                    m_propertyValueLocation.X = mouseLocation.X + 220;
-                    m_propertyValueLocation.Y = mouseLocation.Y + 70;
+                    m_propertyValueLocation.X = mouseLocation.X + 268;
+                    m_propertyValueLocation.Y = mouseLocation.Y + 80;
+
                     }
                 else if (mouseLocation.X < m_game.Window.ClientBounds.Width / 2 &&
                         mouseLocation.Y >= m_game.Window.ClientBounds.Height / 2)
                     {
                     // Bottom Left
-                    m_infoDialogLocation.X = mouseLocation.X - 72;
-                    m_infoDialogLocation.Y = mouseLocation.Y - 406;
+                    int xOffset = -13;
+                    int yOffset = -13;
+
+                    m_infoDialogLocation.X = mouseLocation.X - 72 + xOffset;
+                    m_infoDialogLocation.Y = mouseLocation.Y - 406 + yOffset;
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Bottom Left");
 
                     // Text locations
-                    m_nameLocation.X = mouseLocation.X + 115;
-                    m_nameLocation.Y = mouseLocation.Y + 15;
+                    m_nameLocation.X = mouseLocation.X + 111 + xOffset;
+                    m_nameLocation.Y = mouseLocation.Y + 36 + yOffset;
 
-                    m_propertyLocation.X = mouseLocation.X + 12;
-                    m_propertyLocation.Y = mouseLocation.Y - 330;
+                    m_propertyLocation.X = mouseLocation.X + 26 + xOffset;
+                    m_propertyLocation.Y = mouseLocation.Y - 396 + yOffset;
 
-                    m_propertyValueLocation.X = mouseLocation.X + 220;
-                    m_propertyValueLocation.Y = mouseLocation.Y - 330;
+                    m_propertyValueLocation.X = mouseLocation.X + 278 + xOffset;
+                    m_propertyValueLocation.Y = mouseLocation.Y - 396 + yOffset;
                     }
                 else if (mouseLocation.X >= m_game.Window.ClientBounds.Width / 2 &&
                         mouseLocation.Y < m_game.Window.ClientBounds.Height / 2)
                     {
                     // Top Right
-                    m_infoDialogLocation.X = mouseLocation.X - 406;
-                    m_infoDialogLocation.Y = mouseLocation.Y - 141;
+                    int xOffset = -93;
+                    int yOffset = 53;
+                    m_infoDialogLocation.X = mouseLocation.X - 406 + xOffset;
+                    m_infoDialogLocation.Y = mouseLocation.Y - 141 + yOffset;
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Right");
 
                     // Text locations
-                    m_nameLocation.X = mouseLocation.X - 350;
-                    m_nameLocation.Y = mouseLocation.Y - 35;
+                    m_nameLocation.X = mouseLocation.X - 377 + xOffset;
+                    m_nameLocation.Y = mouseLocation.Y - 91 + yOffset;
 
-                    m_propertyLocation.X = mouseLocation.X - 370;
-                    m_propertyLocation.Y = mouseLocation.Y + 70;
+                    m_propertyLocation.X = mouseLocation.X - 385 + xOffset;
+                    m_propertyLocation.Y = mouseLocation.Y - 47 + yOffset;
 
-                    m_propertyValueLocation.X = mouseLocation.X - 170;
-                    m_propertyValueLocation.Y = mouseLocation.Y + 70;
+                    m_propertyValueLocation.X = mouseLocation.X - 133 + xOffset;
+                    m_propertyValueLocation.Y = mouseLocation.Y - 47 + yOffset;
                     }
                 else if (mouseLocation.X >= m_game.Window.ClientBounds.Width / 2 &&
                         mouseLocation.Y >= m_game.Window.ClientBounds.Height / 2)
                     {
                     // Bottom Right
-                    m_infoDialogLocation.X = mouseLocation.X - 406;
-                    m_infoDialogLocation.Y = mouseLocation.Y - 406;
+                    int xOffset = -94;
+                    int yOffset = -15;
+                    m_infoDialogLocation.X = mouseLocation.X - 406 + xOffset;
+                    m_infoDialogLocation.Y = mouseLocation.Y - 406 + yOffset;
                     m_popupInfoBoxes = m_game.Content.Load<Texture2D> (@"Sprites\Dialog Bottom Right");
 
                     // Text locations
-                    m_nameLocation.X = mouseLocation.X - 350;
-                    m_nameLocation.Y = mouseLocation.Y + 15;
+                    m_nameLocation.X = mouseLocation.X - 376 + xOffset;
+                    m_nameLocation.Y = mouseLocation.Y + 39 + yOffset;
 
-                    m_propertyLocation.X = mouseLocation.X - 370;
-                    m_propertyLocation.Y = mouseLocation.Y - 330;
+                    m_propertyLocation.X = mouseLocation.X - 382 + xOffset;
+                    m_propertyLocation.Y = mouseLocation.Y - 393 + yOffset;
 
-                    m_propertyValueLocation.X = mouseLocation.X - 170;
-                    m_propertyValueLocation.Y = mouseLocation.Y - 330;
+                    m_propertyValueLocation.X = mouseLocation.X - 131 + xOffset;
+                    m_propertyValueLocation.Y = mouseLocation.Y - 393 + yOffset;
                     }
                 }
             // Draw the info box and its text
@@ -289,7 +298,7 @@ namespace HUD
             int count = 0;
             foreach (var entry in m_objectProperties)
                 {
-                if (count == 14)
+                if (count == 20)
                     break;
                 m_gameState.Property = entry.Key;
                 m_gameState.PropertyValue = entry.Value;
@@ -326,8 +335,8 @@ namespace HUD
                 {
                 if (String.Equals (entry.Key, "NAME", StringComparison.InvariantCultureIgnoreCase))
                     {
-                    if (entry.Value.Length > 32)
-                        m_gameState.ComponentName = entry.Value.Substring (0, 32);
+                    if (entry.Value.Length > MAX_NAME_LENGTH)
+                        m_gameState.ComponentName = entry.Value.Substring (0, MAX_NAME_LENGTH);
                     else
                         m_gameState.ComponentName = entry.Value;
                     return;

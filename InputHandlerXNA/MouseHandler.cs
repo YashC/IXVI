@@ -35,7 +35,7 @@ namespace InputHandler
                     {
                     timeDiff = inputManager.UpdateGameTime.TotalGameTime - LastScroll;
                     if (timeDiff < TimeSpan.FromSeconds (3))
-                        steps = steps * (3000/(int)timeDiff.TotalMilliseconds);
+                        steps = steps * (600/(int)timeDiff.TotalMilliseconds);
                     else if (timeDiff < TimeSpan.FromSeconds (5))
                         steps = steps * 2;
                     }
