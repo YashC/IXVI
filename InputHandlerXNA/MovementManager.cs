@@ -77,10 +77,10 @@ namespace InputHandler
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update (GameTime gameTime)
             {
-            CurrentMouseState = Mouse.GetState ();
-            MouseMovementHandler.ProcessMouse (this);
-            m_elapsedTotalMilliseconds = gameTime.TotalGameTime.TotalMilliseconds;
-            base.Update (gameTime);
+            //CurrentMouseState = Mouse.GetState ();
+            //MouseMovementHandler.ProcessMouse (this);
+            //m_elapsedTotalMilliseconds = gameTime.TotalGameTime.TotalMilliseconds;
+            //base.Update (gameTime);
             }
 
         public double ElapsedTotalMilliSeconds

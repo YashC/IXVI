@@ -49,7 +49,10 @@ namespace GameUtilities
 
         Vector2 m_cursorScreenLocation = new Vector2 (0.0f, 0.0f);
         bool m_isKinectConnected = false;  
-        ColorImageData m_kinectVideoColors; 
+  		bool m_isKinectActive = true;
+        bool m_isKeyboardActive = false;
+        bool m_isMouseActive = false;
+	    ColorImageData m_kinectVideoColors; 
 
         bool m_showCursor = false;
         bool m_showInfo = false;
@@ -66,7 +69,41 @@ namespace GameUtilities
 
         string m_onHoverComponentName;
 
-        public string OnHoverComponentName
+        public bool IsKinectActive
+            {
+            get
+                {
+                return m_isKinectActive;
+                }
+            set
+                {
+                m_isKinectActive = value;
+                }
+            }
+        public bool IsKeyboardActive
+            {
+            get
+                {
+                return m_isKeyboardActive;
+                }
+            set
+                {
+                m_isKeyboardActive = value;
+                }
+            }
+        public bool IsMouseActive
+            {
+            get
+                {
+                return m_isMouseActive;
+                }
+            set
+                {
+                m_isMouseActive = value;
+                }
+            }
+        
+		public string OnHoverComponentName
             {
             get
                 {
@@ -99,6 +136,32 @@ namespace GameUtilities
             set
                 {
                 m_graphicsDevice = value;
+                }
+            }
+        int m_screenHeight = 1024;
+        int m_screenWidth = 768;
+
+        public int ScreenHeight
+            {
+            get
+                {
+                return m_screenHeight;
+                }
+            set
+                {
+                m_screenHeight = value;
+                }
+            }
+
+        public int ScreenWidth
+            {
+            get
+                {
+                return m_screenWidth;
+                }
+            set
+                {
+                m_screenWidth = value;
                 }
             }
 

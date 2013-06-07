@@ -1,5 +1,6 @@
 ﻿using Microsoft.Kinect;
 using System;
+using Kinect.Gestures.Segments;
 
 namespace Kinect.Gestures
 {

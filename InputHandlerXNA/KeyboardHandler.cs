@@ -16,22 +16,41 @@ namespace InputHandler
 
          
         //Rotation key mappings
-        static Keys m_rotationLeft = Keys.Left ;
-        static Keys m_rotationRight = Keys.Right;
+        static Keys m_rotationLeft = Keys.A ;
+        static Keys m_rotationRight = Keys.D;
         //static Keys m_rotationUp = Keys.S;
         //static Keys m_rotationDown = Keys.W;
 
         //Movement key mappings
-        static Keys m_moveUp = Keys.W;
-        static Keys m_moveDown = Keys.S;
-        static Keys m_moveBackward = Keys.Down;
-        static Keys m_moveForward = Keys.Up;
+        static Keys m_moveUp = Keys.Up;
+        static Keys m_moveDown = Keys.Down;
+        static Keys m_moveBackward = Keys.S;
+        static Keys m_moveForward = Keys.W;
 
         static Keys m_CameraState = Keys.C;
+
+        static Keys m_switchToKinect = Keys.K;
 
              
         public static void ProcessKeyboard (InputManager inputManager)
             {
+            if (inputManager.CurrentKeyboardState.GetPressedKeys ().Count () > 1)
+                {
+                if (inputManager.CurrentKeyboardState.GetPressedKeys ().Count () == 2 && inputManager.CurrentKeyboardState.IsKeyDown (m_switchToKinect))
+                    {
+                    inputManager.GameState.IsKinectActive = true;
+                    inputManager.GameState.IsKeyboardActive = false;
+                    inputManager.GameState.IsMouseActive = false;
+                    }
+                else
+                    {
+                    inputManager.GameState.IsKeyboardActive = true;
+                    inputManager.GameState.IsKinectActive = false;
+                    inputManager.GameState.IsMouseActive = true;
+                    }
+                }
+            if (inputManager.GameState.IsKeyboardActive)
+                {
             inputManager.GameState.IsInputActive = false;
             if (inputManager.CurrentKeyboardState.IsKeyDown (m_rotationLeft))
                 {
@@ -56,7 +75,7 @@ namespace InputHandler
                 avatarPosition.Z += v.Z;
                 avatarPosition.X += v.X;
                 inputManager.GameState.AvatarPosition = avatarPosition;
-                Console.WriteLine ("Avatar Postion:{0}", avatarPosition.ToString ()); 
+               // Console.WriteLine ("Avatar Postion:{0}", avatarPosition.ToString ()); 
                 }
             if (inputManager.CurrentKeyboardState.IsKeyDown (m_moveBackward))
                 {
@@ -98,6 +117,7 @@ namespace InputHandler
                 inputManager.GameState.CameraState %= 3;        
                 }  
             }
+           }
 
        
         }

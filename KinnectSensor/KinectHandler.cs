@@ -8,9 +8,13 @@ using System.Windows.Automation;
 using System.Windows.Shapes;
 using System.Windows.Controls;
 using Microsoft.Kinect;
+using Microsoft.Kinect.Toolkit;
+using Microsoft.Kinect.Toolkit.Controls;
+using Microsoft.Kinect.Toolkit.Interaction;
 using System.IO;
 using Kinect.Gestures;
 using Kinect.Gestures.Segments;
+using Coding4Fun.Kinect.Wpf;
 
 
 namespace Kinect.Sensor
@@ -146,9 +150,58 @@ namespace Kinect.Sensor
         public event EventHandler onGestureChanged;
 
 
-        public DepthImagePoint m_headDepthPoint;
-        public DepthImagePoint m_leftHandDepthPoint;
-        public DepthImagePoint m_rightHandDepthPoint;
+        private DepthImagePoint m_headDepthPoint;
+        private DepthImagePoint m_leftHandDepthPoint;
+        private DepthImagePoint m_rightHandDepthPoint;
+        private Joint m_scaledRightHand;
+
+        public Joint ScaledRightHand
+            {
+            get
+                {
+                return m_scaledRightHand;
+                }
+            set
+                {
+                m_scaledRightHand = value;
+                }
+            }
+      
+        public DepthImagePoint HeadDepthPoint
+            {
+            get
+                {
+                return m_headDepthPoint;
+                }
+            set
+                {
+                m_headDepthPoint = value;
+                }
+            }
+        
+        public DepthImagePoint LeftHandDepthPoint
+            {
+            get
+                {
+                return m_leftHandDepthPoint;
+                }
+            set
+                {
+                m_leftHandDepthPoint = value;
+                }
+            }
+        
+        public DepthImagePoint RightHandDepthPoint
+            {
+            get
+                {
+                return m_rightHandDepthPoint;
+                }
+            set
+                {
+                m_rightHandDepthPoint = value;
+                }
+           }
 
         #endregion
 
@@ -181,8 +234,17 @@ namespace Kinect.Sensor
 
             if (null != this.sensor)
                 {
+                TransformSmoothParameters paramerters = new TransformSmoothParameters
+                {
+                    Smoothing = 0.3f,
+                    Correction = 0.0f,
+                    Prediction = 0.0f,
+                    JitterRadius = 1.0f,
+                    MaxDeviationRadius = 0.5f
+                };
+
                 // Turn on the skeleton stream to receive skeleton frames
-                sensor.SkeletonStream.Enable ();
+                sensor.SkeletonStream.Enable (paramerters);
                 sensor.ColorStream.Enable (ColorImageFormat.RgbResolution640x480Fps30);
                 sensor.DepthStream.Enable (DepthImageFormat.Resolution640x480Fps30);
 
@@ -304,9 +366,9 @@ namespace Kinect.Sensor
                 if (player == 0 && realDepth == 0)
                     {
                     // white 
-                    depthFrame32[i32 + RedIndex] = 255;
-                    depthFrame32[i32 + GreenIndex] = 0;
-                    depthFrame32[i32 + BlueIndex] = 0;
+                    depthFrame32[i32 + RedIndex] = 225;
+                    depthFrame32[i32 + GreenIndex] = 255;
+                    depthFrame32[i32 + BlueIndex] = 255;
                     }
                 else if (player == 0 && realDepth == tooFarDepth)
                     {
@@ -342,7 +404,8 @@ namespace Kinect.Sensor
                         return;
                     m_headDepthPoint = depth.MapFromSkeletonPoint(skeleton.Joints[JointType.Head].Position);
                     m_leftHandDepthPoint = depth.MapFromSkeletonPoint (skeleton.Joints[JointType.HandLeft].Position);
-                    m_rightHandDepthPoint = depth.MapFromSkeletonPoint (skeleton.Joints[JointType.HandRight].Position); 
+                    m_rightHandDepthPoint = depth.MapFromSkeletonPoint (skeleton.Joints[JointType.HandRight].Position);
+                    m_scaledRightHand = skeleton.Joints[JointType.HandRight].ScaleTo (1680, 1050, 0.5f, 0.5f);
                     }
             }
 
@@ -367,6 +430,12 @@ namespace Kinect.Sensor
             {
             switch (e.GestureName)
                 {
+                case "Select":
+                    Gesture = e.GestureName;
+                    break;
+                case "Clear":
+                    Gesture = e.GestureName;
+                    break;
                 case "MoveForward":
                     Gesture = "MoveForward";
                     break;
@@ -572,6 +641,22 @@ namespace Kinect.Sensor
         private void RegisterGestures ()
             { 
             // define the gestures for the demo
+
+            IRelativeGestureSegment[] clearLeftSegments = new IRelativeGestureSegment[1];
+            ClearLeftSegment clearLeftSegment1 = new ClearLeftSegment ();
+            clearLeftSegments[0] = clearLeftSegment1;            
+            m_gestureController.AddGesture ("Clear", clearLeftSegments);
+
+
+            IRelativeGestureSegment[] rightHandSelectSegments = new IRelativeGestureSegment[16];
+            RightHandSelectSegment rightHandSelectSegment = new RightHandSelectSegment ();
+            for (int i = 0; i < 16; i++)
+                {
+                // gesture consists of the same thing 10 times 
+                rightHandSelectSegments[i] = rightHandSelectSegment;
+                }
+            m_gestureController.AddGesture ("Select", rightHandSelectSegments);
+
             IRelativeGestureSegment[] moveForwardSegments = new IRelativeGestureSegment[3];
             moveForwardSegments[0] = new MoveForwardSegment();
             moveForwardSegments[1] = new MoveForwardSegment ();
@@ -584,14 +669,14 @@ namespace Kinect.Sensor
             moveBackwardSegments[2] = new MoveBackwardSegment ();
             m_gestureController.AddGesture ("MoveBackward", moveBackwardSegments);
 
-            IRelativeGestureSegment[] joinedhandsSegments = new IRelativeGestureSegment[20];
-            JoinedHandsSegment1 joinedhandsSegment = new JoinedHandsSegment1 ();
-            for (int i = 0; i < 20; i++)
-                {
-                // gesture consists of the same thing 10 times 
-                joinedhandsSegments[i] = joinedhandsSegment;
-                }
-            m_gestureController.AddGesture ("JoinedHands", joinedhandsSegments);
+            //IRelativeGestureSegment[] joinedhandsSegments = new IRelativeGestureSegment[20];
+            //JoinedHandsSegment1 joinedhandsSegment = new JoinedHandsSegment1 ();
+            //for (int i = 0; i < 20; i++)
+            //    {
+            //    // gesture consists of the same thing 10 times 
+            //    joinedhandsSegments[i] = joinedhandsSegment;
+            //    }
+            //m_gestureController.AddGesture ("JoinedHands", joinedhandsSegments);
 
             IRelativeGestureSegment[] turnLeftSegments = new IRelativeGestureSegment[10];
             TurnLeftSegment turnLeftSegment = new TurnLeftSegment ();
@@ -612,63 +697,65 @@ namespace Kinect.Sensor
                 }
             m_gestureController.AddGesture ("TurnRight", turnRightSegments);
 
-            IRelativeGestureSegment[] swipeleftSegments = new IRelativeGestureSegment[3];
-            swipeleftSegments[0] = new SwipeLeftSegment1 ();
-            swipeleftSegments[1] = new SwipeLeftSegment2 ();
-            swipeleftSegments[2] = new SwipeLeftSegment3 ();
-            m_gestureController.AddGesture ("SwipeLeft", swipeleftSegments);
+            //IRelativeGestureSegment[] swipeleftSegments = new IRelativeGestureSegment[3];
+            //swipeleftSegments[0] = new SwipeLeftSegment1 ();
+            //swipeleftSegments[1] = new SwipeLeftSegment2 ();
+            //swipeleftSegments[2] = new SwipeLeftSegment3 ();
+            //m_gestureController.AddGesture ("SwipeLeft", swipeleftSegments);
 
-            IRelativeGestureSegment[] swiperightSegments = new IRelativeGestureSegment[3];
-            swiperightSegments[0] = new SwipeRightSegment1 ();
-            swiperightSegments[1] = new SwipeRightSegment2 ();
-            swiperightSegments[2] = new SwipeRightSegment3 ();
-            m_gestureController.AddGesture ("SwipeRight", swiperightSegments);
+            //IRelativeGestureSegment[] swiperightSegments = new IRelativeGestureSegment[3];
+            //swiperightSegments[0] = new SwipeRightSegment1 ();
+            //swiperightSegments[1] = new SwipeRightSegment2 ();
+            //swiperightSegments[2] = new SwipeRightSegment3 ();
+            //m_gestureController.AddGesture ("SwipeRight", swiperightSegments);
 
-            IRelativeGestureSegment[] waveRightSegments = new IRelativeGestureSegment[6];
+            IRelativeGestureSegment[] waveRightSegments = new IRelativeGestureSegment[4];
             WaveRightSegment1 waveRightSegment1 = new WaveRightSegment1 ();
             WaveRightSegment2 waveRightSegment2 = new WaveRightSegment2 ();
             waveRightSegments[0] = waveRightSegment1;
             waveRightSegments[1] = waveRightSegment2;
             waveRightSegments[2] = waveRightSegment1;
-            waveRightSegments[3] = waveRightSegment2;
-            waveRightSegments[4] = waveRightSegment1;
-            waveRightSegments[5] = waveRightSegment2;
+            waveRightSegments[3] = waveRightSegment2;  
             m_gestureController.AddGesture ("WaveRight", waveRightSegments);
 
-            IRelativeGestureSegment[] waveLeftSegments = new IRelativeGestureSegment[6];
-            WaveLeftSegment1 waveLeftSegment1 = new WaveLeftSegment1 ();
-            WaveLeftSegment2 waveLeftSegment2 = new WaveLeftSegment2 ();
-            waveLeftSegments[0] = waveLeftSegment1;
-            waveLeftSegments[1] = waveLeftSegment2;
-            waveLeftSegments[2] = waveLeftSegment1;
-            waveLeftSegments[3] = waveLeftSegment2;
-            waveLeftSegments[4] = waveLeftSegment1;
-            waveLeftSegments[5] = waveLeftSegment2;
-            m_gestureController.AddGesture ("WaveLeft", waveLeftSegments);
+            //IRelativeGestureSegment[] waveLeftSegments = new IRelativeGestureSegment[6];
+            //WaveLeftSegment1 waveLeftSegment1 = new WaveLeftSegment1 ();
+            //WaveLeftSegment2 waveLeftSegment2 = new WaveLeftSegment2 ();
+            //waveLeftSegments[0] = waveLeftSegment1;
+            //waveLeftSegments[1] = waveLeftSegment2;
+            //waveLeftSegments[2] = waveLeftSegment1;
+            //waveLeftSegments[3] = waveLeftSegment2;
+            //waveLeftSegments[4] = waveLeftSegment1;
+            //waveLeftSegments[5] = waveLeftSegment2;
+            //m_gestureController.AddGesture ("WaveLeft", waveLeftSegments);
 
-            IRelativeGestureSegment[] zoomInSegments = new IRelativeGestureSegment[3];
-            zoomInSegments[0] = new ZoomSegment1 ();
-            zoomInSegments[1] = new ZoomSegment2 ();
-            zoomInSegments[2] = new ZoomSegment3 ();
-            m_gestureController.AddGesture ("ZoomIn", zoomInSegments);
+            //IRelativeGestureSegment[] zoomInSegments = new IRelativeGestureSegment[3];
+            //zoomInSegments[0] = new ZoomSegment1 ();
+            //zoomInSegments[1] = new ZoomSegment2 ();
+            //zoomInSegments[2] = new ZoomSegment3 ();
+            //m_gestureController.AddGesture ("ZoomIn", zoomInSegments);
 
-            IRelativeGestureSegment[] zoomOutSegments = new IRelativeGestureSegment[3];
-            zoomOutSegments[0] = new ZoomSegment3 ();
-            zoomOutSegments[1] = new ZoomSegment2 ();
-            zoomOutSegments[2] = new ZoomSegment1 ();
-            m_gestureController.AddGesture ("ZoomOut", zoomOutSegments);
+            //IRelativeGestureSegment[] zoomOutSegments = new IRelativeGestureSegment[3];
+            //zoomOutSegments[0] = new ZoomSegment3 ();
+            //zoomOutSegments[1] = new ZoomSegment2 ();
+            //zoomOutSegments[2] = new ZoomSegment1 ();
+            //m_gestureController.AddGesture ("ZoomOut", zoomOutSegments);
 
-            IRelativeGestureSegment[] swipeUpSegments = new IRelativeGestureSegment[3];
-            swipeUpSegments[0] = new SwipeUpSegment1 ();
-            swipeUpSegments[1] = new SwipeUpSegment2 ();
-            swipeUpSegments[2] = new SwipeUpSegment3 ();
-            m_gestureController.AddGesture ("SwipeUp", swipeUpSegments);
+            //IRelativeGestureSegment[] swipeUpSegments = new IRelativeGestureSegment[3];
+            //swipeUpSegments[0] = new SwipeUpSegment1 ();
+            //swipeUpSegments[1] = new SwipeUpSegment2 ();
+            //swipeUpSegments[2] = new SwipeUpSegment3 ();
+            //m_gestureController.AddGesture ("SwipeUp", swipeUpSegments);
 
-            IRelativeGestureSegment[] swipeDownSegments = new IRelativeGestureSegment[3];
-            swipeDownSegments[0] = new SwipeDownSegment1 ();
-            swipeDownSegments[1] = new SwipeDownSegment2 ();
-            swipeDownSegments[2] = new SwipeDownSegment3 ();
-            m_gestureController.AddGesture ("SwipeDown", swipeDownSegments);
+            //IRelativeGestureSegment[] swipeDownSegments = new IRelativeGestureSegment[3];
+            //swipeDownSegments[0] = new SwipeDownSegment1 ();
+            //swipeDownSegments[1] = new SwipeDownSegment2 ();
+            //swipeDownSegments[2] = new SwipeDownSegment3 ();
+            //m_gestureController.AddGesture ("SwipeDown", swipeDownSegments);
+
+
+
+   
             }  
         
         public DrawingImage ImageSource

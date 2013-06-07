@@ -15,7 +15,7 @@ namespace Kinect.Gestures.Segments
            
             if (leftHand.Depth > head.Depth + 200  && rightHand.Depth > head.Depth + 200)
                 {
-                Console.WriteLine (leftHand.Depth + "; " + rightHand.Depth);
+                //Console.WriteLine (leftHand.Depth + "; " + rightHand.Depth);
                     // Left and right hands below hip
                     if (skeleton.Joints[JointType.ElbowLeft].Position.Y > (skeleton.Joints[JointType.Spine].Position.Y + 0.015) && skeleton.Joints[JointType.ElbowRight].Position.Y > (skeleton.Joints[JointType.Spine].Position.Y + 0.015))
                         {

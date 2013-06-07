@@ -50,6 +50,8 @@
     <Compile Include="GestureEventArgs.cs" />
     <Compile Include="IRelativeGestureSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Segments\ClearLeftSegments.cs" />
+    <Compile Include="Segments\RightHandSelectSegments.cs" />
     <Compile Include="Segments\TurnRightSegment.cs" />
     <Compile Include="Segments\MoveBackwardSegment.cs" />
     <Compile Include="Segments\JoinedHandsSegment.cs" />

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Kinect;
 using Kinect.Gestures;
 using Kinect.Sensor;
 
@@ -34,71 +35,105 @@ namespace InputHandler
         public void ProcessKinectCommands(InputManager inputManager)
             {                                                                   
             inputManager.GameState.KinectVideoColors = kinectHandler.ColorImage;
-            inputManager.GameState.IsInputActive = false;
-            if (kinectHandler.Gesture == "TurnLeft")
+            if (inputManager.GameState.IsKinectActive)
                 {
-                // Rotate left.
-                inputManager.GameState.IsInputActive = true;
-                inputManager.GameState.AvatarYRotation += inputManager.GameState.TurningSpeed/2;
-                }
+                inputManager.GameState.IsInputActive = false;
 
-            if (kinectHandler.Gesture == "TurnRight")
-                {
-                // Rotate right.
-                inputManager.GameState.IsInputActive = true;
-                inputManager.GameState.AvatarYRotation -= inputManager.GameState.TurningSpeed/2;
-                }
-            if (kinectHandler.Gesture == "MoveForward")
-                {
-                inputManager.GameState.IsInputActive = true;
-                Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
-                Vector3 v = new Vector3 (0, 0, -inputManager.GameState.MovingSpeed);
-                v = Vector3.Transform (v, forwardMovement);
-                Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
-                avatarPosition.Z += v.Z;
-                avatarPosition.X += v.X;
-                inputManager.GameState.AvatarPosition = avatarPosition;
-                Console.WriteLine ("Avatar Postion:{0}", avatarPosition.ToString ());
-                }
-            if (kinectHandler.Gesture == "MoveBackward")
-                {
-                inputManager.GameState.IsInputActive = true;
-                Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
-                Vector3 v = new Vector3 (0, 0, inputManager.GameState.MovingSpeed);
-                v = Vector3.Transform (v, forwardMovement);
-                Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
-                avatarPosition.Z += v.Z;
-                avatarPosition.X += v.X;
-                inputManager.GameState.AvatarPosition = avatarPosition;
-                }
-            if (kinectHandler.Gesture == "Swipe Up")
-                {
-                inputManager.GameState.IsInputActive = true;
-                Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
-                Vector3 v = new Vector3 (0, inputManager.GameState.MovingSpeed, 0);
-                v = Vector3.Transform (v, forwardMovement);
-                Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
-                avatarPosition.Y += v.Y;
+                if (kinectHandler.Gesture == "TurnLeft")
+                    {
+                    // Rotate left.
+                    inputManager.GameState.IsInputActive = true;
+                    inputManager.GameState.AvatarYRotation += inputManager.GameState.TurningSpeed / 2;
+                    }
 
-                inputManager.GameState.AvatarPosition = avatarPosition;
+                if (kinectHandler.Gesture == "TurnRight")
+                    {
+                    // Rotate right.
+                    inputManager.GameState.IsInputActive = true;
+                    inputManager.GameState.AvatarYRotation -= inputManager.GameState.TurningSpeed / 2;
+                    }
+                if (kinectHandler.Gesture == "MoveForward")
+                    {
+                    inputManager.GameState.IsInputActive = true;
+                    Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
+                    Vector3 v = new Vector3 (0, 0, -inputManager.GameState.MovingSpeed);
+                    v = Vector3.Transform (v, forwardMovement);
+                    Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
+                    avatarPosition.Z += v.Z;
+                    avatarPosition.X += v.X;
+                    inputManager.GameState.AvatarPosition = avatarPosition;
+                    //Console.WriteLine ("Avatar Postion:{0}", avatarPosition.ToString ());
+                    }
+                if (kinectHandler.Gesture == "MoveBackward")
+                    {
+                    inputManager.GameState.IsInputActive = true;
+                    Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
+                    Vector3 v = new Vector3 (0, 0, inputManager.GameState.MovingSpeed);
+                    v = Vector3.Transform (v, forwardMovement);
+                    Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
+                    avatarPosition.Z += v.Z;
+                    avatarPosition.X += v.X;
+                    inputManager.GameState.AvatarPosition = avatarPosition;
+                    }
+                //if (kinectHandler.Gesture == "Swipe Up")
+                //    {
+                //    inputManager.GameState.IsInputActive = true;
+                //    Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
+                //    Vector3 v = new Vector3 (0, inputManager.GameState.MovingSpeed, 0);
+                //    v = Vector3.Transform (v, forwardMovement);
+                //    Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
+                //    avatarPosition.Y += v.Y;
+
+                //    inputManager.GameState.AvatarPosition = avatarPosition;
+                //    }
+
+                //if (kinectHandler.Gesture == "Swipe Down")
+                //    {
+                //    inputManager.GameState.IsInputActive = true;
+                //    Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
+                //    Vector3 v = new Vector3 (0, -inputManager.GameState.MovingSpeed, 0);
+                //    v = Vector3.Transform (v, forwardMovement);
+                //    Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
+                //    avatarPosition.Y += v.Y;
+                //    inputManager.GameState.AvatarPosition = avatarPosition;
+                //    }
+
+                //if (kinectHandler.Gesture == "Zoom In")
+                //    {
+                //    inputManager.GameState.CameraState += 1;
+                //    inputManager.GameState.CameraState %= 3;
+                //    }
+
+
+
+                if (kinectHandler.Gesture == "Clear")
+                    {
+                    inputManager.GameState.IsInputActive = false;
+                    if (inputManager.GameState.ShowInfo)
+                        inputManager.GameState.ShowInfo = false;
+                    if (inputManager.GameState.ShowCursor)
+                        inputManager.GameState.ShowCursor = false;
+                    }
+
+                if (kinectHandler.Gesture == "Select")
+                    {
+                    // Console.WriteLine (inputManager.GameState.ShowCursor);                      
+                    if (inputManager.GameState.ShowCursor)
+                        {
+                        inputManager.GameState.ShowInfo = true;
+                        }
+                    }
+
+                if (kinectHandler.Gesture == "Wave Right")
+                    {                    
+                    inputManager.GameState.ShowCursor = true;
+                    }
+
+                if (inputManager.GameState.ShowCursor)
+                    { 
+                    inputManager.GameState.CursorScreenLocation = new Vector2 (kinectHandler.ScaledRightHand.Position.X, kinectHandler.ScaledRightHand.Position.Y);                  
+                    }
                 }
-
-            if (kinectHandler.Gesture == "Swipe Down")
-                {
-                inputManager.GameState.IsInputActive = true;
-                Matrix forwardMovement = Matrix.CreateRotationY (inputManager.GameState.AvatarYRotation);
-                Vector3 v = new Vector3 (0, -inputManager.GameState.MovingSpeed, 0);
-                v = Vector3.Transform (v, forwardMovement);
-                Vector3 avatarPosition = inputManager.GameState.AvatarPosition;
-                avatarPosition.Y += v.Y;
-                inputManager.GameState.AvatarPosition = avatarPosition;
-                } 
-
-            if (kinectHandler.Gesture == "Zoom In")
-                {
-                inputManager.GameState.CameraState += 1;
-                inputManager.GameState.CameraState %= 3;
-                } 
             }
 
 

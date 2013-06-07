@@ -27,3 +27,9 @@ C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\ResolveAsse
 C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.dll
 C:\Users\richard.delong\Desktop\IXVI\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.pdb
+C:\Users\Yashwanth.chintana\Documents\GitHub\IXVI-Local\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\Yashwanth.chintana\Documents\GitHub\IXVI-Local\SkinnedModel\bin\Xbox 360\Debug\SkinnedModel.pdb
+C:\Users\Yashwanth.chintana\Documents\GitHub\IXVI-Local\SkinnedModel\obj\Xbox 360\Debug\SkinnedModelWindows.csprojResolveAssemblyReference.cache
+C:\Users\Yashwanth.chintana\Documents\GitHub\IXVI-Local\SkinnedModel\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Yashwanth.chintana\Documents\GitHub\IXVI-Local\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.dll
+C:\Users\Yashwanth.chintana\Documents\GitHub\IXVI-Local\SkinnedModel\obj\Xbox 360\Debug\SkinnedModel.pdb

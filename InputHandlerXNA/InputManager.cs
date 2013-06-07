@@ -129,7 +129,7 @@ namespace InputHandler
 
             CurrentKeyboardState =Keyboard.GetState ();                
             KeyboardHandler.ProcessKeyboard (this);
-
+            MouseMovementHandler.ProcessMouse (this);
             m_mouseHandler.ProcessMouse (this);
 
             if(m_gameState.IsKinectConnected)

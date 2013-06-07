@@ -338,11 +338,15 @@ namespace HUD
         // Draws the Kinect Video display if the Kinect is available
         private void KinectVideo ()
             {
-            if (!m_gameState.IsKinectConnected && m_gameState.KinectVideoColors.ColorImage == null)
+             if ( !m_gameState.IsKinectConnected || !m_gameState.IsKinectActive || m_gameState.KinectVideoColors.ColorImage == null)
                 return;
 
+        if (m_gameState.KinectVideoColors.Width != 0 && m_gameState.KinectVideoColors.Height != 0)
+			{ 
+			m_kinectVideo = new Texture2D (m_game.GraphicsDevice, m_gameState.KinectVideoColors.Width, m_gameState.KinectVideoColors.Height);
             m_kinectVideo.SetData (m_gameState.KinectVideoColors.ColorImage);
             m_gameBatch.Draw (m_kinectVideo, new Rectangle (0, 0, 128, 128), Color.White);                
+			}
             }
 
         public Model Model

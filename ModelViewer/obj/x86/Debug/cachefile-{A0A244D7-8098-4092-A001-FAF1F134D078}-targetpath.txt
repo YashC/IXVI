@@ -1,12 +1,19 @@
-Content\Models\testdgnimodel.xnb
-Content\Avatar\tank.xnb
 Content\Avatar\dude.xnb
+Content\Models\test.dgn.i.2010.xnb
+Content\Models\BESM_Example.xnb
 Content\Textures\GreenOnBlackGrid.xnb
-Content\Sprites\InfoBoxes.xnb
-Content\Sprites\Rectical.xnb
+Content\Sprites\Retical.xnb
+Content\Sprites\SteamPunkDialog.xnb
+Content\Sprites\Dialog Bottom Left.xnb
+Content\Sprites\Dialog Bottom Right.xnb
+Content\Sprites\Dialog Left.xnb
+Content\Sprites\Dialog Right.xnb
+Content\Sprites\Steam Punk Dialog Bottom Left.xnb
+Content\Sprites\Steam Punk Dialog Bottom Right.xnb
+Content\Sprites\Steam Punk Dialog Top Left.xnb
+Content\Sprites\Steam Punk Dialog Top Right.xnb
 Content\Sprites\default.xnb
-Content\Avatar\engine_diff_tex_0.xnb
-Content\Avatar\turret_alt_diff_tex_0.xnb
+Content\Sprites\title.xnb
 Content\Avatar\head_0.xnb
 Content\Avatar\jacket_0.xnb
 Content\Avatar\pants_0.xnb
