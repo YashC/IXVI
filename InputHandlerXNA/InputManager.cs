@@ -72,10 +72,14 @@ namespace InputHandler
     public class InputManager : GameComponent
         {
         KeyboardState m_currentKeyboardState;
-        KeyboardState m_previousKeyboardState;        
+        KeyboardState m_previousKeyboardState;
+        MouseState m_currentMouseState;
+        MouseState m_previousMouseState;
         Game m_game;
         GameState m_gameState = null;
         KinectInputHandler kinectHandler;
+        MouseHandler m_mouseHandler;
+        GameTime m_updateGameTime;
 
         public GameState GameState
             {
@@ -101,7 +105,7 @@ namespace InputHandler
                 }
 
             kinectHandler = new KinectInputHandler (this);
-
+            m_mouseHandler = new MouseHandler ();
             }
 
         public void DisposeHandlers()
@@ -121,11 +125,28 @@ namespace InputHandler
         /// <param name="deltaTime">The elapsed time since the last update.</param>
         public override void Update (GameTime gameTime)
             {
-            CurrentKeyboardState =Keyboard.GetState ();                  
+            UpdateGameTime = gameTime;
+
+            CurrentKeyboardState =Keyboard.GetState ();                
             KeyboardHandler.ProcessKeyboard (this);
+
+            m_mouseHandler.ProcessMouse (this);
+
             if(m_gameState.IsKinectConnected)
                 kinectHandler.ProcessKinectCommands (this);
             base.Update (gameTime);
+            }
+
+        public GameTime UpdateGameTime
+            {
+            get
+                {
+                return m_updateGameTime;
+                }
+            set
+                {
+                m_updateGameTime = value;
+                }
             }
 
         public KeyboardState CurrentKeyboardState
@@ -150,7 +171,31 @@ namespace InputHandler
                 {
                 m_previousKeyboardState = value;
                 }
-            } 
+            }
 
+
+        public MouseState CurrentMouseState
+            {
+            get
+                {
+                return m_currentMouseState;
+                }
+            set
+                {
+                m_currentMouseState = value;
+                }
+            }
+
+        public MouseState PreviousMouseState
+            {
+            get
+                {
+                return m_previousMouseState;
+                }
+            set
+                {
+                m_previousMouseState = value;
+                }
+            }
         }
     }
