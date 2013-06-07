@@ -26,7 +26,6 @@ namespace InputHandler
         public void ProcessMouse(InputManager inputManager)
             {
             inputManager.CurrentMouseState = Mouse.GetState ();
-            inputManager.GameState.IsInputActive = false;
             if(inputManager.CurrentMouseState.ScrollWheelValue != inputManager.PreviousMouseState.ScrollWheelValue)
                 {
                 TimeSpan timeDiff = TimeSpan.Zero;
